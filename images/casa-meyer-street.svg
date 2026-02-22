@@ -1,0 +1,77 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#87CEEB" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FAF7F2"/>
+    </linearGradient>
+    <linearGradient id="shadow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2C2C2C" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+  </defs>
+  <!-- Sky -->
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <!-- Main white wall - left -->
+  <rect x="0" y="150" width="600" height="750" fill="#FAF7F2"/>
+  <rect x="0" y="150" width="600" height="750" fill="#e8e4de" opacity="0.3"/>
+  <!-- Wall shadow/texture -->
+  <rect x="580" y="150" width="20" height="750" fill="url(#shadow)"/>
+  <!-- Main white wall - right -->
+  <rect x="900" y="120" width="700" height="780" fill="#FAF7F2"/>
+  <rect x="900" y="120" width="700" height="780" fill="#e0dcd6" opacity="0.3"/>
+  <!-- Wall shadow -->
+  <rect x="880" y="120" width="20" height="780" fill="url(#shadow)"/>
+  <!-- Yellow entrance door -->
+  <rect x="640" y="320" width="220" height="480" fill="#D4A843"/>
+  <rect x="645" y="325" width="210" height="470" fill="#D4A843"/>
+  <!-- Door detail - darker panel -->
+  <rect x="660" y="340" width="85" height="440" fill="#C89A38" opacity="0.5"/>
+  <rect x="760" y="340" width="85" height="440" fill="#C89A38" opacity="0.5"/>
+  <!-- Door handle -->
+  <circle cx="735" cy="570" r="5" fill="#8B8178"/>
+  <!-- Upper wall section above door -->
+  <rect x="600" y="150" width="300" height="170" fill="#ede9e3"/>
+  <!-- Vegetation - left side cascading -->
+  <g opacity="0.9">
+    <!-- Large leaf clusters -->
+    <ellipse cx="150" cy="120" rx="120" ry="60" fill="#4A7C59"/>
+    <ellipse cx="80" cy="100" rx="80" ry="50" fill="#3d6b4a"/>
+    <ellipse cx="250" cy="130" rx="90" ry="45" fill="#5a8c69"/>
+    <ellipse cx="400" cy="110" rx="100" ry="55" fill="#4A7C59"/>
+    <ellipse cx="550" cy="120" rx="70" ry="40" fill="#3d6b4a"/>
+    <!-- Cascading vines -->
+    <ellipse cx="100" cy="200" rx="50" ry="80" fill="#5a8c69" opacity="0.7"/>
+    <ellipse cx="200" cy="180" rx="40" ry="60" fill="#4A7C59" opacity="0.6"/>
+    <ellipse cx="500" cy="170" rx="60" ry="50" fill="#5a8c69" opacity="0.5"/>
+  </g>
+  <!-- Vegetation - right side -->
+  <g opacity="0.9">
+    <ellipse cx="1100" cy="100" rx="100" ry="50" fill="#4A7C59"/>
+    <ellipse cx="1250" cy="110" rx="80" ry="45" fill="#3d6b4a"/>
+    <ellipse cx="1400" cy="95" rx="110" ry="55" fill="#5a8c69"/>
+    <ellipse cx="1550" cy="110" rx="80" ry="50" fill="#4A7C59"/>
+    <!-- Trailing vines on right wall -->
+    <ellipse cx="1000" cy="200" rx="45" ry="70" fill="#5a8c69" opacity="0.5"/>
+    <ellipse cx="1500" cy="180" rx="50" ry="60" fill="#4A7C59" opacity="0.4"/>
+  </g>
+  <!-- Bougainvillea accent -->
+  <g opacity="0.7">
+    <circle cx="300" cy="140" r="15" fill="#E84C8A" opacity="0.6"/>
+    <circle cx="320" cy="125" r="12" fill="#E84C8A" opacity="0.5"/>
+    <circle cx="280" cy="130" r="10" fill="#E84C8A" opacity="0.7"/>
+    <circle cx="340" cy="145" r="8" fill="#E84C8A" opacity="0.4"/>
+    <circle cx="1350" cy="100" r="12" fill="#E84C8A" opacity="0.5"/>
+    <circle cx="1380" cy="110" r="10" fill="#E84C8A" opacity="0.6"/>
+  </g>
+  <!-- Street / ground -->
+  <rect x="0" y="800" width="1600" height="100" fill="#d4c5b0"/>
+  <!-- Sidewalk -->
+  <rect x="0" y="790" width="1600" height="15" fill="#e8e4de"/>
+  <!-- Shadow on ground from walls -->
+  <polygon points="600,800 600,790 900,790 900,800" fill="#c4b5a0"/>
+  <!-- Small window on left wall -->
+  <rect x="350" y="350" width="80" height="100" fill="#6B6560" opacity="0.3"/>
+  <rect x="355" y="355" width="70" height="90" fill="#87CEEB" opacity="0.15"/>
+  <!-- Address number -->
+  <text x="540" y="280" font-family="Georgia, serif" font-size="24" fill="#8B8178" opacity="0.4">14</text>
+</svg>

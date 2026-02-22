@@ -1,0 +1,49 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a3632"/>
+      <stop offset="100%" stop-color="#2C2C2C"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E84C8A" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#E84C8A" stop-opacity="0.12"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- Pink wall behind -->
+  <rect x="0" y="0" width="350" height="600" fill="url(#wall)"/>
+  <!-- Warm light rectangle -->
+  <rect x="480" y="60" width="260" height="380" fill="#D4A843" opacity="0.08"/>
+  <!-- Figure 1 - Barragán (taller, left) -->
+  <g opacity="0.85">
+    <!-- Body -->
+    <rect x="200" y="250" width="120" height="280" rx="2" fill="#4a4540"/>
+    <!-- Head -->
+    <circle cx="260" cy="210" r="45" fill="#5a5550"/>
+    <!-- Hat brim -->
+    <rect x="205" y="185" width="110" height="12" rx="6" fill="#3a3530"/>
+    <!-- Hat top -->
+    <rect x="225" y="155" width="70" height="35" rx="4" fill="#3a3530"/>
+    <!-- Arm extended -->
+    <rect x="310" y="290" width="80" height="18" rx="9" fill="#4a4540"/>
+  </g>
+  <!-- Figure 2 - Baby Meyer (smaller, right) -->
+  <g opacity="0.85">
+    <!-- Body -->
+    <rect x="380" y="280" width="100" height="250" rx="2" fill="#5a5248"/>
+    <!-- Head -->
+    <circle cx="430" cy="245" r="38" fill="#6a6258"/>
+    <!-- Hair suggestion -->
+    <path d="M395 230 Q430 200 465 230" fill="#4a4240" />
+  </g>
+  <!-- Architectural element - door frame -->
+  <rect x="560" y="180" width="140" height="350" fill="none" stroke="#D4A843" stroke-width="1.5" opacity="0.2"/>
+  <rect x="570" y="190" width="120" height="330" fill="#D4A843" opacity="0.04"/>
+  <!-- Light beam -->
+  <polygon points="560,180 700,180 750,600 510,600" fill="#FAF7F2" opacity="0.03"/>
+  <!-- Floor shadow -->
+  <rect x="0" y="530" width="800" height="70" fill="#1a1a1a" opacity="0.3"/>
+  <!-- Subtle text -->
+  <text x="400" y="575" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#8B8178" opacity="0.6" font-style="italic">Luis Barragán &amp; Baby Meyer de Garate</text>
+</svg>

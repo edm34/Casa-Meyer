@@ -1,0 +1,76 @@
+<svg viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid-s" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="none" stroke="#C4B5A0" stroke-width="0.3" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <!-- Paper background -->
+  <rect width="800" height="550" fill="#F5F0E8"/>
+  <!-- Grid overlay -->
+  <rect width="800" height="550" fill="url(#grid-s)" opacity="0.4"/>
+  <!-- Title block -->
+  <text x="400" y="35" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#8B8178" letter-spacing="4">FACHADA SUR</text>
+  <line x1="300" y1="42" x2="500" y2="42" stroke="#C4B5A0" stroke-width="0.5"/>
+  <!-- Ground line -->
+  <line x1="80" y1="440" x2="720" y2="440" stroke="#8B8178" stroke-width="1"/>
+  <line x1="60" y1="442" x2="740" y2="442" stroke="#8B8178" stroke-width="0.5"/>
+  <!-- Main volume - large left block -->
+  <rect x="120" y="180" width="240" height="260" fill="none" stroke="#5a5248" stroke-width="1.2"/>
+  <rect x="120" y="180" width="240" height="260" fill="#D4C5B0" opacity="0.2"/>
+  <!-- Upper left volume -->
+  <rect x="120" y="100" width="150" height="80" fill="none" stroke="#5a5248" stroke-width="1.2"/>
+  <rect x="120" y="100" width="150" height="80" fill="#C4B5A0" opacity="0.15"/>
+  <!-- Middle right volume -->
+  <rect x="360" y="220" width="200" height="220" fill="none" stroke="#5a5248" stroke-width="1.2"/>
+  <rect x="360" y="220" width="200" height="220" fill="#BEB0A0" opacity="0.15"/>
+  <!-- Tall chimney element -->
+  <rect x="390" y="70" width="45" height="370" fill="none" stroke="#5a5248" stroke-width="1.2"/>
+  <rect x="390" y="70" width="45" height="370" fill="#A09888" opacity="0.15"/>
+  <!-- Far right small volume -->
+  <rect x="560" y="300" width="120" height="140" fill="none" stroke="#5a5248" stroke-width="1.2"/>
+  <rect x="560" y="300" width="120" height="140" fill="#D4C5B0" opacity="0.1"/>
+  <!-- Window openings - hatched -->
+  <g fill="#6B6560" opacity="0.25">
+    <rect x="160" y="220" width="55" height="80"/>
+    <rect x="250" y="300" width="70" height="100"/>
+    <rect x="470" y="280" width="55" height="70"/>
+    <rect x="590" y="340" width="50" height="60"/>
+  </g>
+  <!-- Window frames -->
+  <g fill="none" stroke="#5a5248" stroke-width="0.8">
+    <rect x="160" y="220" width="55" height="80"/>
+    <rect x="250" y="300" width="70" height="100"/>
+    <rect x="470" y="280" width="55" height="70"/>
+    <rect x="590" y="340" width="50" height="60"/>
+  </g>
+  <!-- Cross-hatching in windows -->
+  <g stroke="#5a5248" stroke-width="0.3" opacity="0.4">
+    <line x1="160" y1="220" x2="215" y2="300"/>
+    <line x1="215" y1="220" x2="160" y2="300"/>
+    <line x1="250" y1="300" x2="320" y2="400"/>
+    <line x1="320" y1="300" x2="250" y2="400"/>
+    <line x1="470" y1="280" x2="525" y2="350"/>
+    <line x1="525" y1="280" x2="470" y2="350"/>
+  </g>
+  <!-- Dimension lines -->
+  <g stroke="#C4B5A0" stroke-width="0.5">
+    <!-- Horizontal dimension -->
+    <line x1="120" y1="470" x2="680" y2="470"/>
+    <line x1="120" y1="465" x2="120" y2="475"/>
+    <line x1="680" y1="465" x2="680" y2="475"/>
+    <!-- Vertical dimension left -->
+    <line x1="90" y1="100" x2="90" y2="440"/>
+    <line x1="85" y1="100" x2="95" y2="100"/>
+    <line x1="85" y1="440" x2="95" y2="440"/>
+  </g>
+  <!-- Scale text -->
+  <text x="400" y="490" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#8B8178">ESC. 1:50</text>
+  <!-- Architect signature area -->
+  <text x="650" y="510" text-anchor="end" font-family="Georgia, serif" font-size="9" fill="#8B8178" font-style="italic" opacity="0.6">L. Barragán — Oct. 31, 1978</text>
+  <!-- North arrow -->
+  <g transform="translate(720, 80)">
+    <line x1="0" y1="20" x2="0" y2="-20" stroke="#8B8178" stroke-width="0.8"/>
+    <polygon points="0,-20 -5,-10 5,-10" fill="#8B8178" opacity="0.6"/>
+    <text x="0" y="-25" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#8B8178">N</text>
+  </g>
+</svg>
