@@ -1,6 +1,6 @@
 /* ============================================
    CASA MEYER — Main JavaScript
-   Parallax scrolling, interactions, booking
+   Scroll-driven parallax, interactions, booking
    ============================================ */
 
 (function () {
@@ -18,7 +18,6 @@
     }, 1200);
   });
 
-  // Fallback in case load event already fired
   if (document.readyState === 'complete') {
     setTimeout(() => {
       preloader.classList.add('is-hidden');
@@ -33,29 +32,24 @@
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
 
-  // Scroll behavior for nav
   let lastScroll = 0;
 
   function handleNavScroll() {
     const currentScroll = window.scrollY;
-
     if (currentScroll > 80) {
       nav.classList.add('is-scrolled');
     } else {
       nav.classList.remove('is-scrolled');
     }
-
     lastScroll = currentScroll;
   }
 
-  // Mobile nav toggle
   navToggle.addEventListener('click', () => {
     navToggle.classList.toggle('is-active');
     navLinks.classList.toggle('is-open');
     document.body.style.overflow = navLinks.classList.contains('is-open') ? 'hidden' : '';
   });
 
-  // Close mobile nav on link click
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navToggle.classList.remove('is-active');
@@ -73,12 +67,6 @@
       '.reveal, .reveal-up, .reveal-left, .reveal-right'
     );
 
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px 0px -60px 0px',
-      threshold: 0.1
-    };
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -86,72 +74,179 @@
           observer.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, {
+      root: null,
+      rootMargin: '0px 0px -60px 0px',
+      threshold: 0.1
+    });
 
     revealElements.forEach(el => observer.observe(el));
   }
 
   // ============================================
-  // Parallax System
+  // PARALLAX ENGINE — Scroll-driven transforms
   // ============================================
 
+  // Cache DOM refs
+  const hero = document.querySelector('.hero');
+  const heroContent = document.querySelector('.hero-content');
   const heroBlocks = document.querySelectorAll('.hero-block');
   const heroLattice = document.querySelector('.hero-lattice');
-  const friendshipBg = document.querySelector('.friendship-bg');
-  const storyParallaxImages = document.querySelectorAll('[data-parallax-speed]');
+
+  const friendshipSection = document.querySelector('.friendship');
+  const friendshipBg = document.querySelector('.friendship-portrait-bg');
+  const friendshipCard = document.querySelector('.friendship-text-card');
+
+  const storyImageInner = document.querySelector('.story-image-inner');
+  const facadeCards = document.querySelectorAll('.facade-card');
+
+  const closingSection = document.querySelector('.closing');
+  const closingQuote = document.querySelector('.closing-quote');
+
+  const colorDividerBlocks = document.querySelectorAll('.color-divider-block');
+
+  function clamp(val, min, max) {
+    return Math.min(Math.max(val, min), max);
+  }
+
+  function lerp(start, end, t) {
+    return start + (end - start) * t;
+  }
+
+  // Get how far through the viewport an element is (0 = just entering bottom, 1 = just leaving top)
+  function getScrollProgress(el) {
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight;
+    return clamp((vh - rect.top) / (vh + rect.height), 0, 1);
+  }
 
   function handleParallax() {
     const scrollY = window.scrollY;
-    const viewportHeight = window.innerHeight;
+    const vh = window.innerHeight;
 
-    // Hero parallax - color blocks and lattice move at different speeds
-    const heroHeight = viewportHeight;
-    if (scrollY < heroHeight * 1.5) {
+    // ---- HERO: Content fades out + zooms, color blocks drift ----
+    if (hero) {
+      const heroProgress = clamp(scrollY / vh, 0, 1.5);
+
+      // Hero content fades and drifts up as you scroll
+      if (heroContent) {
+        const opacity = clamp(1 - heroProgress * 1.8, 0, 1);
+        const translateY = heroProgress * -80;
+        const scale = 1 + heroProgress * 0.05;
+        heroContent.style.transform = `translateY(${translateY}px) scale(${scale})`;
+        heroContent.style.opacity = opacity;
+      }
+
+      // Color blocks drift at different rates
       heroBlocks.forEach((block, i) => {
-        const speed = (i + 1) * 0.15;
-        const y = scrollY * speed;
-        block.style.transform = `translateY(${y}px)`;
+        const speed = (i + 1) * 0.3;
+        block.style.transform = `translateY(${scrollY * speed}px)`;
       });
 
       if (heroLattice) {
-        heroLattice.style.transform = `translateY(${scrollY * 0.08}px)`;
+        heroLattice.style.transform = `translateY(${scrollY * 0.15}px)`;
+        heroLattice.style.opacity = clamp(0.08 - heroProgress * 0.08, 0, 0.08);
       }
     }
 
-    // Friendship section - portrait background parallax
-    if (friendshipBg) {
-      const friendshipSection = friendshipBg.closest('.friendship');
-      if (friendshipSection) {
-        const rect = friendshipSection.getBoundingClientRect();
-        if (rect.top < viewportHeight && rect.bottom > 0) {
-          const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
-          const offset = (progress - 0.5) * 100;
-          friendshipBg.style.transform = `translateY(${offset}px)`;
+    // ---- FRIENDSHIP: Background image parallax + card slides in ----
+    if (friendshipSection) {
+      const rect = friendshipSection.getBoundingClientRect();
+      if (rect.top < vh && rect.bottom > 0) {
+        const progress = getScrollProgress(friendshipSection);
+
+        // Background image moves slower than scroll (parallax)
+        if (friendshipBg) {
+          const offset = (progress - 0.5) * -150;
+          friendshipBg.style.transform = `translateY(${offset}px) scale(1.1)`;
+        }
+
+        // Card slides in from right as section enters view
+        if (friendshipCard) {
+          const cardProgress = clamp((progress - 0.15) / 0.5, 0, 1);
+          const eased = 1 - Math.pow(1 - cardProgress, 3); // ease-out cubic
+          friendshipCard.style.transform = `translateX(${(1 - eased) * 60}px)`;
+          friendshipCard.style.opacity = eased;
         }
       }
     }
 
-    // Generic parallax elements (story image, etc.)
-    storyParallaxImages.forEach(el => {
-      const rect = el.parentElement.getBoundingClientRect();
-      if (rect.top < viewportHeight && rect.bottom > 0) {
-        const speed = parseFloat(el.dataset.parallaxSpeed) || 0.1;
-        const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
-        const offset = (progress - 0.5) * 80 * speed;
-        el.style.transform = `translateY(${offset}px)`;
+    // ---- STORY IMAGE: Parallax drift ----
+    if (storyImageInner) {
+      const parent = storyImageInner.closest('.story-image-parallax');
+      if (parent) {
+        const rect = parent.getBoundingClientRect();
+        if (rect.top < vh && rect.bottom > 0) {
+          const progress = getScrollProgress(parent);
+          const offset = (progress - 0.5) * -60;
+          storyImageInner.style.transform = `translateY(${offset}px)`;
+        }
+      }
+    }
+
+    // ---- FACADE CARDS: Staggered parallax drift ----
+    facadeCards.forEach((card, i) => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < vh && rect.bottom > 0) {
+        const progress = getScrollProgress(card);
+        const offset = (progress - 0.5) * -30 * (i === 0 ? 1 : 1.5);
+        card.style.transform = `translateY(${offset}px)`;
       }
     });
 
-    // Visit section background blocks
+    // ---- COLOR DIVIDER: Blocks slide in from edges on scroll ----
+    colorDividerBlocks.forEach((block, i) => {
+      const parent = block.parentElement;
+      if (parent) {
+        const rect = parent.getBoundingClientRect();
+        if (rect.top < vh && rect.bottom > 0) {
+          const progress = getScrollProgress(parent);
+          const eased = clamp((progress - 0.2) / 0.4, 0, 1);
+          const direction = i % 2 === 0 ? -1 : 1;
+          block.style.transform = `translateX(${(1 - eased) * direction * 100}%)`;
+          block.style.opacity = eased;
+        }
+      }
+    });
+
+    // ---- CLOSING: Quote fades in and scales ----
+    if (closingSection && closingQuote) {
+      const rect = closingSection.getBoundingClientRect();
+      if (rect.top < vh && rect.bottom > 0) {
+        const progress = getScrollProgress(closingSection);
+        const quoteProgress = clamp((progress - 0.1) / 0.5, 0, 1);
+        const eased = 1 - Math.pow(1 - quoteProgress, 3);
+        closingQuote.style.transform = `translateY(${(1 - eased) * 40}px) scale(${lerp(0.95, 1, eased)})`;
+        closingQuote.style.opacity = eased;
+      }
+    }
+
+    // ---- VISIT SECTION: Background blocks drift ----
     const visitBlocks = document.querySelectorAll('.visit-bg-block');
     visitBlocks.forEach((block, i) => {
       const rect = block.parentElement.getBoundingClientRect();
-      if (rect.top < viewportHeight && rect.bottom > 0) {
-        const speed = (i + 1) * 0.03;
-        const offset = rect.top * speed;
-        block.style.transform = `translateY(${offset}px)`;
+      if (rect.top < vh && rect.bottom > 0) {
+        const speed = (i + 1) * 0.05;
+        block.style.transform = `translateY(${rect.top * speed}px)`;
       }
     });
+  }
+
+  // ============================================
+  // Scroll-driven section color transitions
+  // ============================================
+
+  function handleSectionTransitions() {
+    // When friendship section is in view, darken the nav
+    if (friendshipSection) {
+      const rect = friendshipSection.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (rect.top < vh * 0.3 && rect.bottom > vh * 0.3) {
+        nav.classList.add('is-dark');
+      } else {
+        nav.classList.remove('is-dark');
+      }
+    }
   }
 
   // ============================================
@@ -162,7 +257,7 @@
     const grid = document.getElementById('latticeGrid');
     if (!grid) return;
 
-    const totalCells = 64; // 8x8 grid
+    const totalCells = 64;
 
     for (let i = 0; i < totalCells; i++) {
       const cell = document.createElement('div');
@@ -171,7 +266,6 @@
       grid.appendChild(cell);
     }
 
-    // Animate cells on hover proximity
     const cells = grid.querySelectorAll('.lattice-cell');
 
     grid.addEventListener('mousemove', (e) => {
@@ -206,19 +300,16 @@
       });
     });
 
-    // Auto-animate lattice when in view
     let latticeAnimationFrame;
 
     function animateLatticeWave() {
       const time = Date.now() * 0.001;
-
       cells.forEach((cell, index) => {
         const col = index % 8;
         const row = Math.floor(index / 8);
         const wave = Math.sin(time * 1.5 + col * 0.4 + row * 0.3) * 0.5 + 0.5;
         cell.style.opacity = 0.12 + wave * 0.35;
       });
-
       latticeAnimationFrame = requestAnimationFrame(animateLatticeWave);
     }
 
@@ -228,16 +319,13 @@
           animateLatticeWave();
         } else {
           cancelAnimationFrame(latticeAnimationFrame);
-          cells.forEach(cell => {
-            cell.style.opacity = '';
-          });
+          cells.forEach(cell => { cell.style.opacity = ''; });
         }
       });
     }, { threshold: 0.2 });
 
     latticeObserver.observe(grid);
 
-    // Override wave animation on mouse interaction
     grid.addEventListener('mouseenter', () => {
       cancelAnimationFrame(latticeAnimationFrame);
     });
@@ -308,7 +396,6 @@
 
     if (!form || !modal) return;
 
-    // Set minimum date to today
     const tourDateInput = document.getElementById('tourDate');
     if (tourDateInput) {
       const today = new Date().toISOString().split('T')[0];
@@ -317,23 +404,14 @@
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-
-      // Collect form data
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
-
-      // In a real application, this would send to a backend
       console.log('Booking submission:', data);
-
-      // Show confirmation modal
       modal.classList.add('is-visible');
       document.body.style.overflow = 'hidden';
-
-      // Reset form
       form.reset();
     });
 
-    // Close modal
     if (modalClose) {
       modalClose.addEventListener('click', () => {
         modal.classList.remove('is-visible');
@@ -341,7 +419,6 @@
       });
     }
 
-    // Close modal on backdrop click
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.classList.remove('is-visible');
@@ -349,7 +426,6 @@
       }
     });
 
-    // Close modal on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.classList.contains('is-visible')) {
         modal.classList.remove('is-visible');
@@ -370,13 +446,10 @@
         if (entry.isIntersecting) {
           const item = entry.target;
           const fill = item.querySelector('.gallery-color-fill:not(.gallery-color-fill--fallback)');
-
           if (fill) {
-            // Animate the color fill with a clip-path reveal
             fill.style.transition = 'clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
             fill.style.clipPath = 'inset(0 0 0 0)';
           }
-
           observer.unobserve(item);
         }
       });
@@ -397,20 +470,16 @@
 
   function initPaletteInteraction() {
     const swatches = document.querySelectorAll('.palette-swatch');
-
     swatches.forEach(swatch => {
       swatch.addEventListener('click', () => {
-        // Brief flash effect
         swatch.style.transform = 'scaleY(1.1)';
-        setTimeout(() => {
-          swatch.style.transform = '';
-        }, 200);
+        setTimeout(() => { swatch.style.transform = ''; }, 200);
       });
     });
   }
 
   // ============================================
-  // Scroll performance (throttled)
+  // Scroll performance (throttled via rAF)
   // ============================================
 
   let ticking = false;
@@ -420,6 +489,7 @@
       requestAnimationFrame(() => {
         handleNavScroll();
         handleParallax();
+        handleSectionTransitions();
         updateActiveNavLink();
         ticking = false;
       });
@@ -440,19 +510,19 @@
 
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // Trigger initial state
+    // Set initial state
     handleNavScroll();
+    handleParallax();
     updateActiveNavLink();
 
-    // Trigger hero animations on load
+    // Trigger hero animations after preloader
     setTimeout(() => {
       document.querySelectorAll('.hero .reveal').forEach(el => {
         el.classList.add('is-visible');
       });
-    }, 1400); // After preloader
+    }, 1400);
   }
 
-  // Start when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
