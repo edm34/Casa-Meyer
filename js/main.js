@@ -1,6 +1,6 @@
 /* ============================================
    CASA MEYER — Main JavaScript
-   Scroll animations, interactions, booking
+   Parallax scrolling, interactions, booking
    ============================================ */
 
 (function () {
@@ -92,42 +92,61 @@
   }
 
   // ============================================
-  // Hero Parallax
+  // Parallax System
   // ============================================
 
   const heroBlocks = document.querySelectorAll('.hero-block');
   const heroLattice = document.querySelector('.hero-lattice');
+  const friendshipBg = document.querySelector('.friendship-bg');
+  const storyParallaxImages = document.querySelectorAll('[data-parallax-speed]');
 
-  function handleHeroParallax() {
+  function handleParallax() {
     const scrollY = window.scrollY;
-    const heroHeight = window.innerHeight;
+    const viewportHeight = window.innerHeight;
 
-    if (scrollY > heroHeight) return;
+    // Hero parallax - color blocks and lattice move at different speeds
+    const heroHeight = viewportHeight;
+    if (scrollY < heroHeight * 1.5) {
+      heroBlocks.forEach((block, i) => {
+        const speed = (i + 1) * 0.15;
+        const y = scrollY * speed;
+        block.style.transform = `translateY(${y}px)`;
+      });
 
-    const progress = scrollY / heroHeight;
+      if (heroLattice) {
+        heroLattice.style.transform = `translateY(${scrollY * 0.08}px)`;
+      }
+    }
 
-    heroBlocks.forEach((block, i) => {
-      const speed = (i + 1) * 0.15;
-      const y = scrollY * speed;
-      block.style.transform = `translateY(${y}px)`;
+    // Friendship section - portrait background parallax
+    if (friendshipBg) {
+      const friendshipSection = friendshipBg.closest('.friendship');
+      if (friendshipSection) {
+        const rect = friendshipSection.getBoundingClientRect();
+        if (rect.top < viewportHeight && rect.bottom > 0) {
+          const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+          const offset = (progress - 0.5) * 100;
+          friendshipBg.style.transform = `translateY(${offset}px)`;
+        }
+      }
+    }
+
+    // Generic parallax elements (story image, etc.)
+    storyParallaxImages.forEach(el => {
+      const rect = el.parentElement.getBoundingClientRect();
+      if (rect.top < viewportHeight && rect.bottom > 0) {
+        const speed = parseFloat(el.dataset.parallaxSpeed) || 0.1;
+        const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+        const offset = (progress - 0.5) * 80 * speed;
+        el.style.transform = `translateY(${offset}px)`;
+      }
     });
 
-    if (heroLattice) {
-      heroLattice.style.transform = `translateY(${scrollY * 0.08}px)`;
-    }
-  }
-
-  // ============================================
-  // Color Block Parallax (subtle movement on scroll)
-  // ============================================
-
-  function handleColorBlockParallax() {
-    const scrollY = window.scrollY;
+    // Visit section background blocks
     const visitBlocks = document.querySelectorAll('.visit-bg-block');
-
     visitBlocks.forEach((block, i) => {
       const rect = block.parentElement.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
+      if (rect.top < viewportHeight && rect.bottom > 0) {
         const speed = (i + 1) * 0.03;
         const offset = rect.top * speed;
         block.style.transform = `translateY(${offset}px)`;
@@ -381,8 +400,6 @@
 
     swatches.forEach(swatch => {
       swatch.addEventListener('click', () => {
-        const color = getComputedStyle(swatch).backgroundColor;
-
         // Brief flash effect
         swatch.style.transform = 'scaleY(1.1)';
         setTimeout(() => {
@@ -402,8 +419,7 @@
     if (!ticking) {
       requestAnimationFrame(() => {
         handleNavScroll();
-        handleHeroParallax();
-        handleColorBlockParallax();
+        handleParallax();
         updateActiveNavLink();
         ticking = false;
       });

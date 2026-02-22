@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Casa Meyer — Luis Barragán's Final Residential Project</title>
-  <meta name="description" content="Explore Casa Meyer, the last residential work of Pritzker Prize-winning architect Luis Barragán. Book a tour and discover the legacy of Mexican modernism.">
+  <meta name="description" content="Explore Casa Meyer, the last residential work of Pritzker Prize-winning architect Luis Barragán. A home built for one of his dearest friends as a final gift.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;1,200;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
         <span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#barragan">Barragán</a></li>
+        <li><a href="#friendship">The Friendship</a></li>
         <li><a href="#story">The House</a></li>
         <li><a href="#architecture">Architecture</a></li>
         <li><a href="#gallery">Gallery</a></li>
@@ -43,88 +43,126 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-color-blocks">
-      <div class="hero-block hero-block--pink"></div>
-      <div class="hero-block hero-block--yellow"></div>
-      <div class="hero-block hero-block--white"></div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-overline reveal">Mexico City, 1978</div>
-      <h1 class="hero-title">
-        <span class="reveal reveal--delay-1">Casa</span>
-        <span class="reveal reveal--delay-2">Meyer</span>
-      </h1>
-      <p class="hero-subtitle reveal reveal--delay-3">The final residential work of Luis Barragán</p>
-      <div class="hero-scroll-indicator reveal reveal--delay-4">
-        <span>Scroll to explore</span>
-        <div class="scroll-line"></div>
+  <!-- ============================================
+       PARALLAX SECTION 1: Hero
+       Full viewport, color blocks with depth
+       ============================================ -->
+  <section class="hero parallax-group" id="hero">
+    <div class="parallax-layer parallax-layer--back">
+      <div class="hero-color-blocks">
+        <div class="hero-block hero-block--pink"></div>
+        <div class="hero-block hero-block--yellow"></div>
+        <div class="hero-block hero-block--white"></div>
+      </div>
+      <div class="hero-lattice" aria-hidden="true">
+        <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="lattice" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+              <rect x="2" y="2" width="46" height="46" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            </pattern>
+          </defs>
+          <rect width="400" height="600" fill="url(#lattice)"/>
+        </svg>
       </div>
     </div>
-    <div class="hero-lattice" aria-hidden="true">
-      <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="lattice" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
-            <rect x="2" y="2" width="46" height="46" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-          </pattern>
-        </defs>
-        <rect width="400" height="600" fill="url(#lattice)"/>
-      </svg>
+    <div class="parallax-layer parallax-layer--base">
+      <div class="hero-content">
+        <div class="hero-overline reveal">Mexico City, 1978</div>
+        <h1 class="hero-title">
+          <span class="reveal reveal--delay-1">Casa</span>
+          <span class="reveal reveal--delay-2">Meyer</span>
+        </h1>
+        <p class="hero-subtitle reveal reveal--delay-3">A final gift between friends</p>
+        <div class="hero-scroll-indicator reveal reveal--delay-4">
+          <span>Scroll to explore</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Introduction -->
-  <section class="intro" id="intro">
-    <div class="container">
-      <blockquote class="intro-quote reveal-up">
-        <p>"Any work of architecture which does not express serenity is a mistake."</p>
-        <cite>— Luis Barragán</cite>
-      </blockquote>
+  <!-- ============================================
+       PARALLAX SECTION 2: Opening Quote
+       ============================================ -->
+  <section class="intro parallax-group" id="intro">
+    <div class="parallax-layer parallax-layer--base">
+      <div class="container">
+        <blockquote class="intro-quote reveal-up">
+          <p>"Any work of architecture which does not express serenity is a mistake."</p>
+          <cite>— Luis Barragán</cite>
+        </blockquote>
+      </div>
     </div>
     <div class="intro-color-band" aria-hidden="true"></div>
   </section>
 
-  <!-- About Barragán -->
-  <section class="barragan" id="barragan">
-    <div class="container">
-      <div class="section-grid">
-        <div class="section-label reveal-up">
-          <span class="label-number">01</span>
-          <span class="label-text">The Architect</span>
-        </div>
-        <div class="section-content">
-          <h2 class="section-title reveal-up">Luis Barragán</h2>
-          <p class="section-year reveal-up">1902 — 1988</p>
-          <div class="text-columns reveal-up">
-            <p>Luis Ramiro Barragán Morfín was a Mexican architect and engineer whose work has profoundly influenced the trajectory of modern architecture. Born in Guadalajara, Jalisco, Barragán developed a unique architectural language that fused modernist principles with the rich traditions of Mexican vernacular architecture.</p>
-            <p>His buildings are characterized by bold planes of color — vivid pinks, deep purples, warm yellows, and burnt oranges — set against austere geometric forms. He manipulated natural light and water to create spaces of profound emotional and spiritual resonance, what he called "emotional architecture."</p>
-          </div>
-          <div class="barragan-achievements reveal-up">
-            <div class="achievement">
-              <span class="achievement-year">1980</span>
-              <span class="achievement-text">Pritzker Architecture Prize Laureate</span>
+  <!-- ============================================
+       PARALLAX SECTION 3: The Friendship
+       Full-bleed portrait with parallax offset
+       ============================================ -->
+  <section class="friendship parallax-group" id="friendship">
+    <!-- Full-viewport portrait background -->
+    <div class="parallax-layer parallax-layer--deep friendship-bg">
+      <div class="friendship-portrait-bg">
+        <img src="images/barragan-meyer-portrait.svg" alt="Luis Barragán and Barbara Meyer de Garate together" loading="lazy">
+      </div>
+    </div>
+    <div class="parallax-layer parallax-layer--base">
+      <div class="friendship-content">
+        <div class="container">
+          <div class="friendship-text-card">
+            <div class="section-label reveal-up">
+              <span class="label-number">01</span>
+              <span class="label-text">The Friendship</span>
             </div>
-            <div class="achievement">
-              <span class="achievement-year">2004</span>
-              <span class="achievement-text">Casa Luis Barragán declared UNESCO World Heritage Site</span>
+            <h2 class="section-title reveal-up">Barbara &amp; Luis</h2>
+            <p class="friendship-subtitle reveal-up">A bond of nearly 25 years</p>
+            <div class="friendship-body reveal-up">
+              <p>For nearly a quarter century, Barbara Meyer de Garate and Luis Barragán shared a deep and enduring friendship. She was among his closest confidantes — someone who understood both the man and the architect, who appreciated the silence in his buildings and the warmth in his character.</p>
+              <p>By 1978, Barragán was 76 years old. His health was declining, and he knew his years of active practice were drawing to a close. For one of his dearest friends, he chose to design one final home — a last act of architectural devotion, a gift rendered in light, color, and stone.</p>
+            </div>
+            <div class="friendship-dedication reveal-up">
+              <p class="dedication-text">"Para Baby Meyer de Garate, con todo cariño"</p>
+              <p class="dedication-translation">For Baby Meyer de Garate, with all affection</p>
+              <p class="dedication-author">— inscribed on the original facade drawings, October 31, 1978</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Barragán portrait area -->
-    <div class="barragan-portrait reveal-up">
-      <div class="portrait-frame">
-        <div class="portrait-placeholder">
-          <img src="images/barragan-meyer-portrait.svg" alt="Luis Barragán with Baby Meyer de Garate" loading="lazy" onerror="this.style.display='none'">
-          <div class="portrait-overlay">
-            <span>Luis Barragán &amp; Baby Meyer de Garate</span>
+  <!-- ============================================
+       PARALLAX SECTION 4: The Architect
+       ============================================ -->
+  <section class="barragan parallax-group" id="barragan">
+    <div class="parallax-layer parallax-layer--base">
+      <div class="container">
+        <div class="section-grid">
+          <div class="section-label reveal-up">
+            <span class="label-number">02</span>
+            <span class="label-text">The Architect</span>
+          </div>
+          <div class="section-content">
+            <h2 class="section-title reveal-up">Luis Barragán</h2>
+            <p class="section-year reveal-up">1902 — 1988</p>
+            <div class="text-columns reveal-up">
+              <p>Luis Ramiro Barragán Morfín was a Mexican architect and engineer whose work has profoundly influenced the trajectory of modern architecture. Born in Guadalajara, Jalisco, Barragán developed a unique architectural language that fused modernist principles with the rich traditions of Mexican vernacular architecture.</p>
+              <p>His buildings are characterized by bold planes of color — vivid pinks, deep purples, warm yellows, and burnt oranges — set against austere geometric forms. He manipulated natural light and water to create spaces of profound emotional and spiritual resonance, what he called "emotional architecture."</p>
+            </div>
+            <div class="barragan-achievements reveal-up">
+              <div class="achievement">
+                <span class="achievement-year">1980</span>
+                <span class="achievement-text">Pritzker Architecture Prize Laureate</span>
+              </div>
+              <div class="achievement">
+                <span class="achievement-year">2004</span>
+                <span class="achievement-text">Casa Luis Barragán declared UNESCO World Heritage Site</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="portrait-color-accent" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -135,36 +173,37 @@
     <div class="color-divider-block color-divider-block--gold reveal-left"></div>
   </div>
 
-  <!-- Casa Meyer Story -->
-  <section class="story" id="story">
-    <div class="container">
-      <div class="section-grid">
-        <div class="section-label reveal-up">
-          <span class="label-number">02</span>
-          <span class="label-text">The House</span>
-        </div>
-        <div class="section-content">
-          <h2 class="section-title reveal-up">Casa Meyer</h2>
-          <p class="section-year reveal-up">Designed October 31, 1978</p>
-          <div class="story-dedication reveal-up">
-            <p class="dedication-text">"Para Baby Meyer de Garate, con todo cariño"</p>
-            <p class="dedication-author">— Luis Barragán, on the original facade drawings</p>
+  <!-- ============================================
+       PARALLAX SECTION 5: The House (Casa Meyer Story)
+       Street view with parallax image
+       ============================================ -->
+  <section class="story parallax-group" id="story">
+    <div class="parallax-layer parallax-layer--base">
+      <div class="container">
+        <div class="section-grid">
+          <div class="section-label reveal-up">
+            <span class="label-number">03</span>
+            <span class="label-text">The House</span>
           </div>
-          <div class="text-columns reveal-up">
-            <p>Casa Meyer stands as Luis Barragán's final residential project — a culminating expression of decades spent refining an architecture of silence, color, and emotional depth. Designed for Baby Meyer de Garate, the house was conceived as both a home and a meditation on the relationship between architecture and landscape.</p>
-            <p>Located in Mexico City, the house embodies Barragán's mature vision: massive walls that filter and direct light, gardens that blur the boundary between interior and exterior, and a color palette drawn from Mexican tradition — the hot pink of bougainvillea, the warm yellow of colonial facades, the white of lime-washed adobe.</p>
+          <div class="section-content">
+            <h2 class="section-title reveal-up">Casa Meyer</h2>
+            <p class="section-year reveal-up">Designed October 31, 1978</p>
+            <div class="text-columns reveal-up">
+              <p>Casa Meyer stands as Luis Barragán's final residential project — a culminating expression of decades spent refining an architecture of silence, color, and emotional depth. More than a commission, it was a gift to one of his dearest friends, conceived as both a home and a meditation on the relationship between architecture and landscape.</p>
+              <p>Located in Mexico City, the house embodies Barragán's mature vision: massive walls that filter and direct light, gardens that blur the boundary between interior and exterior, and a color palette drawn from Mexican tradition — the hot pink of bougainvillea, the warm yellow of colonial facades, the white of lime-washed adobe.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Street view -->
-    <div class="story-image reveal-up">
-      <div class="story-image-frame">
-        <img src="images/casa-meyer-street.svg" alt="Casa Meyer street view — white walls and lush green vegetation frame a yellow entrance door" loading="lazy" onerror="this.style.display='none'">
-        <div class="story-image-overlay">
-          <span>Casa Meyer — Street facade with characteristic white walls and abundant vegetation</span>
-        </div>
+    <!-- Street view with parallax -->
+    <div class="story-image-parallax">
+      <div class="story-image-inner" data-parallax-speed="0.15">
+        <img src="images/casa-meyer-street.svg" alt="Casa Meyer street view — architectural sketch showing white perimeter walls, recessed yellow entrance door, and cascading vegetation" loading="lazy">
+      </div>
+      <div class="story-image-overlay">
+        <span>Casa Meyer — Street facade sketch, showing the characteristic white walls, yellow entrance door, and cascading vegetation</span>
       </div>
     </div>
 
@@ -180,8 +219,8 @@
               <line x1="4" y1="4" x2="36" y2="4" stroke="currentColor" stroke-width="1.5"/>
             </svg>
           </div>
-          <h3>Last Residential Work</h3>
-          <p>Designed at age 76, Casa Meyer represents Barragán's most distilled architectural thinking — every element serves both functional and poetic purpose.</p>
+          <h3>A Gift Between Friends</h3>
+          <p>After nearly 25 years of friendship, Barragán designed this home at age 76 as a final act of devotion — every element serves both functional and poetic purpose.</p>
         </div>
         <div class="detail-card reveal-up">
           <div class="detail-icon">
@@ -208,155 +247,152 @@
     </div>
   </section>
 
-  <!-- Architecture Section -->
-  <section class="architecture" id="architecture">
-    <div class="architecture-intro">
-      <div class="container">
-        <div class="section-grid">
-          <div class="section-label reveal-up">
-            <span class="label-number">03</span>
-            <span class="label-text">Architecture</span>
-          </div>
-          <div class="section-content">
-            <h2 class="section-title reveal-up">Facades &amp; Form</h2>
-            <p class="architecture-text reveal-up">The original drawings, signed and dated October 31, 1978, reveal Barragán's meticulous approach to composition. Each facade is a study in geometric restraint — stacked volumes, carefully proportioned openings, and the interplay of solid and void.</p>
+  <!-- ============================================
+       PARALLAX SECTION 6: Architecture
+       Facade drawings with deep parallax
+       ============================================ -->
+  <section class="architecture parallax-group" id="architecture">
+    <div class="parallax-layer parallax-layer--base">
+      <div class="architecture-intro">
+        <div class="container">
+          <div class="section-grid">
+            <div class="section-label reveal-up">
+              <span class="label-number">04</span>
+              <span class="label-text">Architecture</span>
+            </div>
+            <div class="section-content">
+              <h2 class="section-title reveal-up">Facades &amp; Form</h2>
+              <p class="architecture-text reveal-up">The original drawings, signed and dated October 31, 1978, reveal Barragán's meticulous approach to composition. Each facade is a study in geometric restraint — stacked volumes, carefully proportioned openings, and the interplay of solid and void.</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Facade Drawings -->
-    <div class="facade-drawings">
-      <div class="facade-card reveal-up">
-        <div class="facade-frame">
-          <img src="images/fachada-sur.svg" alt="FACHADA SUR — South Facade drawing by Luis Barragán showing geometric composition of stacked volumes" loading="lazy" onerror="this.style.display='none'">
-          <!-- SVG fallback inspired by the south facade drawing -->
-          <svg class="facade-svg" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" aria-label="South Facade — architectural drawing interpretation">
-            <!-- Ground line -->
-            <line x1="50" y1="350" x2="550" y2="350" stroke="#8B8178" stroke-width="1"/>
-            <!-- Main volume -->
-            <rect x="100" y="150" width="200" height="200" fill="#D4C5B0" stroke="#8B8178" stroke-width="1"/>
-            <!-- Upper volume -->
-            <rect x="100" y="80" width="120" height="70" fill="#C4B5A0" stroke="#8B8178" stroke-width="1"/>
-            <!-- Right volume -->
-            <rect x="300" y="200" width="180" height="150" fill="#BEB0A0" stroke="#8B8178" stroke-width="1"/>
-            <!-- Tall element (chimney) -->
-            <rect x="320" y="60" width="40" height="290" fill="#A09888" stroke="#8B8178" stroke-width="1"/>
-            <!-- Window openings -->
-            <rect x="140" y="180" width="50" height="70" fill="#6B6560" stroke="#8B8178" stroke-width="0.5"/>
-            <rect x="220" y="260" width="60" height="90" fill="#6B6560" stroke="#8B8178" stroke-width="0.5"/>
-            <rect x="400" y="240" width="50" height="60" fill="#6B6560" stroke="#8B8178" stroke-width="0.5"/>
-            <!-- Scale reference -->
-            <text x="300" y="390" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8178">FACHADA SUR · 1:50</text>
-          </svg>
-        </div>
-        <div class="facade-info">
-          <h3>Fachada Sur</h3>
-          <p>South Facade</p>
-        </div>
-      </div>
-
-      <div class="facade-card reveal-up">
-        <div class="facade-frame">
-          <img src="images/fachada-poniente.svg" alt="FACHADA PONIENTE — West Facade drawing by Luis Barragán showing stepping volumes and tall chimney element" loading="lazy" onerror="this.style.display='none'">
-          <!-- SVG fallback inspired by the west facade drawing -->
-          <svg class="facade-svg" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" aria-label="West Facade — architectural drawing interpretation">
-            <!-- Ground line -->
-            <line x1="50" y1="350" x2="550" y2="350" stroke="#8B8178" stroke-width="1"/>
-            <!-- Stepped volumes -->
-            <rect x="80" y="200" width="160" height="150" fill="#D4C5B0" stroke="#8B8178" stroke-width="1"/>
-            <rect x="80" y="120" width="100" height="80" fill="#C4B5A0" stroke="#8B8178" stroke-width="1"/>
-            <rect x="240" y="170" width="140" height="180" fill="#BEB0A0" stroke="#8B8178" stroke-width="1"/>
-            <!-- Tall chimney -->
-            <rect x="400" y="50" width="35" height="300" fill="#A09888" stroke="#8B8178" stroke-width="1"/>
-            <!-- Right volume -->
-            <rect x="435" y="220" width="100" height="130" fill="#D4C5B0" stroke="#8B8178" stroke-width="1"/>
-            <!-- Openings -->
-            <rect x="120" y="250" width="80" height="100" fill="#6B6560" stroke="#8B8178" stroke-width="0.5"/>
-            <rect x="270" y="200" width="40" height="50" fill="#6B6560" stroke="#8B8178" stroke-width="0.5"/>
-            <rect x="340" y="280" width="30" height="70" fill="#6B6560" stroke="#8B8178" stroke-width="0.5"/>
-            <!-- Scale reference -->
-            <text x="300" y="390" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8178">FACHADA PONIENTE · 1:50</text>
-          </svg>
-        </div>
-        <div class="facade-info">
-          <h3>Fachada Poniente</h3>
-          <p>West Facade</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pink Lattice Section -->
-    <div class="lattice-section">
-      <div class="container">
-        <div class="lattice-content">
-          <div class="lattice-text reveal-up">
-            <h3>The Pink Lattice</h3>
-            <p>One of Barragán's signature elements — a geometric screen that filters light and creates shifting patterns throughout the day. The lattice at Casa Meyer, rendered in his characteristic hot pink, transforms a simple grid into a living element that breathes with the passage of the sun.</p>
+      <!-- Facade Drawings -->
+      <div class="facade-drawings">
+        <div class="facade-card reveal-up">
+          <div class="facade-frame">
+            <img src="images/fachada-sur.svg" alt="FACHADA SUR — South Facade drawing by Luis Barragán showing geometric composition of stacked volumes" loading="lazy" onerror="this.style.display='none'">
+            <!-- SVG fallback inspired by the south facade drawing -->
+            <svg class="facade-svg" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" aria-label="South Facade — architectural drawing interpretation">
+              <line x1="50" y1="350" x2="550" y2="350" stroke="#8B8178" stroke-width="1"/>
+              <rect x="100" y="150" width="200" height="200" fill="#D4C5B0" stroke="#8B8178" stroke-width="1"/>
+              <rect x="100" y="80" width="120" height="70" fill="#C4B5A0" stroke="#8B8178" stroke-width="1"/>
+              <rect x="300" y="200" width="180" height="150" fill="#BEB0A0" stroke="#8B8178" stroke-width="1"/>
+              <rect x="320" y="60" width="40" height="290" fill="#A09888" stroke="#8B8178" stroke-width="1"/>
+              <rect x="140" y="180" width="50" height="70" fill="#6B6560" stroke="#8B8178" stroke-width="0.5"/>
+              <rect x="220" y="260" width="60" height="90" fill="#6B6560" stroke="#8B8178" stroke-width="0.5"/>
+              <rect x="400" y="240" width="50" height="60" fill="#6B6560" stroke="#8B8178" stroke-width="0.5"/>
+              <text x="300" y="390" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8178">FACHADA SUR · 1:50</text>
+            </svg>
           </div>
-          <div class="lattice-interactive reveal-up" id="latticeGrid">
-            <!-- Generated by JS -->
+          <div class="facade-info">
+            <h3>Fachada Sur</h3>
+            <p>South Facade</p>
+          </div>
+        </div>
+
+        <div class="facade-card reveal-up">
+          <div class="facade-frame">
+            <img src="images/fachada-poniente.svg" alt="FACHADA PONIENTE — West Facade drawing by Luis Barragán showing stepping volumes and tall chimney element" loading="lazy" onerror="this.style.display='none'">
+            <!-- SVG fallback inspired by the west facade drawing -->
+            <svg class="facade-svg" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" aria-label="West Facade — architectural drawing interpretation">
+              <line x1="50" y1="350" x2="550" y2="350" stroke="#8B8178" stroke-width="1"/>
+              <rect x="80" y="200" width="160" height="150" fill="#D4C5B0" stroke="#8B8178" stroke-width="1"/>
+              <rect x="80" y="120" width="100" height="80" fill="#C4B5A0" stroke="#8B8178" stroke-width="1"/>
+              <rect x="240" y="170" width="140" height="180" fill="#BEB0A0" stroke="#8B8178" stroke-width="1"/>
+              <rect x="400" y="50" width="35" height="300" fill="#A09888" stroke="#8B8178" stroke-width="1"/>
+              <rect x="435" y="220" width="100" height="130" fill="#D4C5B0" stroke="#8B8178" stroke-width="1"/>
+              <rect x="120" y="250" width="80" height="100" fill="#6B6560" stroke="#8B8178" stroke-width="0.5"/>
+              <rect x="270" y="200" width="40" height="50" fill="#6B6560" stroke="#8B8178" stroke-width="0.5"/>
+              <rect x="340" y="280" width="30" height="70" fill="#6B6560" stroke="#8B8178" stroke-width="0.5"/>
+              <text x="300" y="390" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8178">FACHADA PONIENTE · 1:50</text>
+            </svg>
+          </div>
+          <div class="facade-info">
+            <h3>Fachada Poniente</h3>
+            <p>West Facade</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pink Lattice Section -->
+      <div class="lattice-section">
+        <div class="container">
+          <div class="lattice-content">
+            <div class="lattice-text reveal-up">
+              <h3>The Pink Lattice</h3>
+              <p>One of Barragán's signature elements — a geometric screen that filters light and creates shifting patterns throughout the day. The lattice at Casa Meyer, rendered in his characteristic hot pink, transforms a simple grid into a living element that breathes with the passage of the sun.</p>
+            </div>
+            <div class="lattice-interactive reveal-up" id="latticeGrid">
+              <!-- Generated by JS -->
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Gallery -->
-  <section class="gallery" id="gallery">
-    <div class="container">
-      <div class="section-grid">
-        <div class="section-label reveal-up">
-          <span class="label-number">04</span>
-          <span class="label-text">Gallery</span>
-        </div>
-        <div class="section-content">
-          <h2 class="section-title reveal-up">Visual Journey</h2>
+  <!-- ============================================
+       PARALLAX SECTION 7: Gallery
+       Masonry grid
+       ============================================ -->
+  <section class="gallery parallax-group" id="gallery">
+    <div class="parallax-layer parallax-layer--base">
+      <div class="container">
+        <div class="section-grid">
+          <div class="section-label reveal-up">
+            <span class="label-number">05</span>
+            <span class="label-text">Gallery</span>
+          </div>
+          <div class="section-content">
+            <h2 class="section-title reveal-up">Visual Journey</h2>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="gallery-grid">
-      <div class="gallery-item gallery-item--tall reveal-up">
-        <div class="gallery-color-fill" style="--fill-color: var(--pink)"></div>
-        <div class="gallery-caption">Barragán's signature pink — drawn from the bougainvillea of Mexican gardens</div>
-      </div>
-      <div class="gallery-item reveal-up">
-        <img src="images/casa-meyer-street.svg" alt="Casa Meyer street facade" loading="lazy" onerror="this.parentElement.classList.add('gallery-item--fallback')">
-        <div class="gallery-color-fill gallery-color-fill--fallback" style="--fill-color: var(--warm-white)"></div>
-        <div class="gallery-caption">Street facade — white walls and vegetation</div>
-      </div>
-      <div class="gallery-item reveal-up">
-        <div class="gallery-color-fill" style="--fill-color: var(--gold)"></div>
-        <div class="gallery-caption">Warm yellow — the color of colonial Mexico City facades</div>
-      </div>
-      <div class="gallery-item gallery-item--wide reveal-up">
-        <img src="images/fachada-sur.svg" alt="South facade architectural drawing" loading="lazy" onerror="this.parentElement.classList.add('gallery-item--fallback')">
-        <div class="gallery-color-fill gallery-color-fill--fallback" style="--fill-color: var(--stone)"></div>
-        <div class="gallery-caption">Fachada Sur — South Facade, October 1978</div>
-      </div>
-      <div class="gallery-item reveal-up">
-        <div class="gallery-color-fill" style="--fill-color: var(--terracotta)"></div>
-        <div class="gallery-caption">Terracotta — earth, warmth, Mexican tradition</div>
-      </div>
-      <div class="gallery-item reveal-up">
-        <img src="images/fachada-poniente.svg" alt="West facade architectural drawing" loading="lazy" onerror="this.parentElement.classList.add('gallery-item--fallback')">
-        <div class="gallery-color-fill gallery-color-fill--fallback" style="--fill-color: var(--stone)"></div>
-        <div class="gallery-caption">Fachada Poniente — West Facade, 1:50 scale</div>
-      </div>
-      <div class="gallery-item gallery-item--tall reveal-up">
-        <div class="gallery-color-fill" style="--fill-color: var(--deep-green)"></div>
-        <div class="gallery-caption">The green of Casa Meyer's gardens — nature as architecture</div>
-      </div>
-      <div class="gallery-item reveal-up">
-        <img src="images/barragan-meyer-portrait.svg" alt="Luis Barragán with Baby Meyer de Garate" loading="lazy" onerror="this.parentElement.classList.add('gallery-item--fallback')">
-        <div class="gallery-color-fill gallery-color-fill--fallback" style="--fill-color: var(--charcoal)"></div>
-        <div class="gallery-caption">Luis Barragán &amp; Baby Meyer de Garate</div>
-      </div>
-      <div class="gallery-item reveal-up">
-        <img src="images/lattice-detail.svg" alt="Pink lattice architectural detail" loading="lazy" onerror="this.parentElement.classList.add('gallery-item--fallback')">
-        <div class="gallery-color-fill gallery-color-fill--fallback" style="--fill-color: var(--pink)"></div>
-        <div class="gallery-caption">The pink lattice — light, geometry, color</div>
+      <div class="gallery-grid">
+        <div class="gallery-item gallery-item--tall reveal-up">
+          <div class="gallery-color-fill" style="--fill-color: var(--pink)"></div>
+          <div class="gallery-caption">Barragán's signature pink — drawn from the bougainvillea of Mexican gardens</div>
+        </div>
+        <div class="gallery-item reveal-up">
+          <img src="images/casa-meyer-street.svg" alt="Casa Meyer street facade sketch" loading="lazy" onerror="this.parentElement.classList.add('gallery-item--fallback')">
+          <div class="gallery-color-fill gallery-color-fill--fallback" style="--fill-color: var(--warm-white)"></div>
+          <div class="gallery-caption">Street facade — the yellow door, white walls, and cascading green</div>
+        </div>
+        <div class="gallery-item reveal-up">
+          <div class="gallery-color-fill" style="--fill-color: var(--gold)"></div>
+          <div class="gallery-caption">Warm yellow — the color of colonial Mexico City facades</div>
+        </div>
+        <div class="gallery-item gallery-item--wide reveal-up">
+          <img src="images/fachada-sur.svg" alt="South facade architectural drawing" loading="lazy" onerror="this.parentElement.classList.add('gallery-item--fallback')">
+          <div class="gallery-color-fill gallery-color-fill--fallback" style="--fill-color: var(--stone)"></div>
+          <div class="gallery-caption">Fachada Sur — South Facade, October 1978</div>
+        </div>
+        <div class="gallery-item reveal-up">
+          <div class="gallery-color-fill" style="--fill-color: var(--terracotta)"></div>
+          <div class="gallery-caption">Terracotta — earth, warmth, Mexican tradition</div>
+        </div>
+        <div class="gallery-item reveal-up">
+          <img src="images/fachada-poniente.svg" alt="West facade architectural drawing" loading="lazy" onerror="this.parentElement.classList.add('gallery-item--fallback')">
+          <div class="gallery-color-fill gallery-color-fill--fallback" style="--fill-color: var(--stone)"></div>
+          <div class="gallery-caption">Fachada Poniente — West Facade, 1:50 scale</div>
+        </div>
+        <div class="gallery-item gallery-item--tall reveal-up">
+          <div class="gallery-color-fill" style="--fill-color: var(--deep-green)"></div>
+          <div class="gallery-caption">The green of Casa Meyer's gardens — nature as architecture</div>
+        </div>
+        <div class="gallery-item gallery-item--wide reveal-up">
+          <img src="images/barragan-meyer-portrait.svg" alt="Luis Barragán and Barbara Meyer de Garate — friends for nearly 25 years" loading="lazy" onerror="this.parentElement.classList.add('gallery-item--fallback')">
+          <div class="gallery-color-fill gallery-color-fill--fallback" style="--fill-color: var(--charcoal)"></div>
+          <div class="gallery-caption">Luis Barragán &amp; Barbara Meyer de Garate — a friendship spanning nearly 25 years</div>
+        </div>
+        <div class="gallery-item reveal-up">
+          <img src="images/lattice-detail.svg" alt="Pink lattice architectural detail" loading="lazy" onerror="this.parentElement.classList.add('gallery-item--fallback')">
+          <div class="gallery-color-fill gallery-color-fill--fallback" style="--fill-color: var(--pink)"></div>
+          <div class="gallery-caption">The pink lattice — light, geometry, color</div>
+        </div>
       </div>
     </div>
   </section>
@@ -388,126 +424,130 @@
     </div>
   </section>
 
-  <!-- Book a Tour -->
-  <section class="visit" id="visit">
+  <!-- ============================================
+       PARALLAX SECTION 8: Book a Tour
+       ============================================ -->
+  <section class="visit parallax-group" id="visit">
     <div class="visit-bg-blocks" aria-hidden="true">
       <div class="visit-bg-block visit-bg-block--1"></div>
       <div class="visit-bg-block visit-bg-block--2"></div>
     </div>
-    <div class="container">
-      <div class="section-grid">
-        <div class="section-label reveal-up">
-          <span class="label-number">05</span>
-          <span class="label-text">Visit</span>
+    <div class="parallax-layer parallax-layer--base">
+      <div class="container">
+        <div class="section-grid">
+          <div class="section-label reveal-up">
+            <span class="label-number">06</span>
+            <span class="label-text">Visit</span>
+          </div>
+          <div class="section-content">
+            <h2 class="section-title reveal-up">Book a Tour</h2>
+            <p class="visit-intro reveal-up">Experience Casa Meyer in person. Walk through the spaces Barragán designed for his dear friend Barbara, feel the light shift across colored walls, and discover why this house represents the culmination of one of the 20th century's greatest architectural minds — and one of its most enduring friendships.</p>
+          </div>
         </div>
-        <div class="section-content">
-          <h2 class="section-title reveal-up">Book a Tour</h2>
-          <p class="visit-intro reveal-up">Experience Casa Meyer in person. Walk through the spaces Barragán designed, feel the light shift across colored walls, and discover why this house represents the culmination of one of the 20th century's greatest architectural minds.</p>
-        </div>
-      </div>
 
-      <div class="booking-container reveal-up">
-        <form class="booking-form" id="bookingForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" name="firstName" required>
+        <div class="booking-container reveal-up">
+          <form class="booking-form" id="bookingForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName" required>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
             </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="tourDate">Preferred Date</label>
+                <input type="date" id="tourDate" name="tourDate" required>
+              </div>
+              <div class="form-group">
+                <label for="tourTime">Preferred Time</label>
+                <select id="tourTime" name="tourTime" required>
+                  <option value="" disabled selected>Select a time</option>
+                  <option value="10:00">10:00 AM</option>
+                  <option value="11:00">11:00 AM</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="13:00">1:00 PM</option>
+                  <option value="14:00">2:00 PM</option>
+                  <option value="15:00">3:00 PM</option>
+                  <option value="16:00">4:00 PM</option>
+                </select>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="guests">Number of Guests</label>
+                <select id="guests" name="guests" required>
+                  <option value="" disabled selected>Select</option>
+                  <option value="1">1 Guest</option>
+                  <option value="2">2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5">5 Guests</option>
+                  <option value="6">6 Guests</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="tourType">Tour Type</label>
+                <select id="tourType" name="tourType" required>
+                  <option value="" disabled selected>Select a tour</option>
+                  <option value="standard">Standard Tour</option>
+                  <option value="architecture">Architecture Deep-Dive</option>
+                  <option value="photography">Photography Tour</option>
+                  <option value="private">Private Experience</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="tourDate">Preferred Date</label>
-              <input type="date" id="tourDate" name="tourDate" required>
+            <div class="form-group form-group--full">
+              <label for="message">Special Requests</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us about any special requirements or interests..."></textarea>
             </div>
-            <div class="form-group">
-              <label for="tourTime">Preferred Time</label>
-              <select id="tourTime" name="tourTime" required>
-                <option value="" disabled selected>Select a time</option>
-                <option value="10:00">10:00 AM</option>
-                <option value="11:00">11:00 AM</option>
-                <option value="12:00">12:00 PM</option>
-                <option value="13:00">1:00 PM</option>
-                <option value="14:00">2:00 PM</option>
-                <option value="15:00">3:00 PM</option>
-                <option value="16:00">4:00 PM</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="guests">Number of Guests</label>
-              <select id="guests" name="guests" required>
-                <option value="" disabled selected>Select</option>
-                <option value="1">1 Guest</option>
-                <option value="2">2 Guests</option>
-                <option value="3">3 Guests</option>
-                <option value="4">4 Guests</option>
-                <option value="5">5 Guests</option>
-                <option value="6">6 Guests</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="tourType">Tour Type</label>
-              <select id="tourType" name="tourType" required>
-                <option value="" disabled selected>Select a tour</option>
-                <option value="standard">Standard Tour</option>
-                <option value="architecture">Architecture Deep-Dive</option>
-                <option value="photography">Photography Tour</option>
-                <option value="private">Private Experience</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group form-group--full">
-            <label for="message">Special Requests</label>
-            <textarea id="message" name="message" rows="4" placeholder="Tell us about any special requirements or interests..."></textarea>
-          </div>
-          <button type="submit" class="booking-submit">
-            <span>Reserve Your Visit</span>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </form>
+            <button type="submit" class="booking-submit">
+              <span>Reserve Your Visit</span>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </form>
 
-        <!-- Tour Info Cards -->
-        <div class="tour-info">
-          <div class="tour-card">
-            <h3>Standard Tour</h3>
-            <p class="tour-duration">60 minutes</p>
-            <p>A guided walk through the house and gardens, exploring Barragán's design philosophy and the history of Casa Meyer.</p>
-            <p class="tour-price">$350 MXN per person</p>
-          </div>
-          <div class="tour-card">
-            <h3>Architecture Deep-Dive</h3>
-            <p class="tour-duration">90 minutes</p>
-            <p>An extended tour with detailed analysis of spatial composition, materials, light studies, and construction techniques.</p>
-            <p class="tour-price">$500 MXN per person</p>
-          </div>
-          <div class="tour-card">
-            <h3>Photography Tour</h3>
-            <p class="tour-duration">120 minutes</p>
-            <p>Special access for photography enthusiasts. Capture the interplay of light, color, and form. Tripods permitted.</p>
-            <p class="tour-price">$700 MXN per person</p>
-          </div>
-          <div class="tour-card tour-card--highlight">
-            <h3>Private Experience</h3>
-            <p class="tour-duration">By arrangement</p>
-            <p>An exclusive, personalized visit for groups of up to 6. Includes refreshments in the garden and access to the archive.</p>
-            <p class="tour-price">$4,200 MXN per group</p>
+          <!-- Tour Info Cards -->
+          <div class="tour-info">
+            <div class="tour-card">
+              <h3>Standard Tour</h3>
+              <p class="tour-duration">60 minutes</p>
+              <p>A guided walk through the house and gardens, exploring Barragán's design philosophy and the story of his friendship with Barbara.</p>
+              <p class="tour-price">$350 MXN per person</p>
+            </div>
+            <div class="tour-card">
+              <h3>Architecture Deep-Dive</h3>
+              <p class="tour-duration">90 minutes</p>
+              <p>An extended tour with detailed analysis of spatial composition, materials, light studies, and construction techniques.</p>
+              <p class="tour-price">$500 MXN per person</p>
+            </div>
+            <div class="tour-card">
+              <h3>Photography Tour</h3>
+              <p class="tour-duration">120 minutes</p>
+              <p>Special access for photography enthusiasts. Capture the interplay of light, color, and form. Tripods permitted.</p>
+              <p class="tour-price">$700 MXN per person</p>
+            </div>
+            <div class="tour-card tour-card--highlight">
+              <h3>Private Experience</h3>
+              <p class="tour-duration">By arrangement</p>
+              <p>An exclusive, personalized visit for groups of up to 6. Includes refreshments in the garden and access to the archive.</p>
+              <p class="tour-price">$4,200 MXN per group</p>
+            </div>
           </div>
         </div>
       </div>
@@ -515,12 +555,14 @@
   </section>
 
   <!-- Closing Quote -->
-  <section class="closing">
-    <div class="container">
-      <blockquote class="closing-quote reveal-up">
-        <p>"I believe in an emotional architecture. It is very important for humankind that architecture should move by its beauty."</p>
-        <cite>— Luis Barragán, Pritzker Prize acceptance speech, 1980</cite>
-      </blockquote>
+  <section class="closing parallax-group">
+    <div class="parallax-layer parallax-layer--base">
+      <div class="container">
+        <blockquote class="closing-quote reveal-up">
+          <p>"I believe in an emotional architecture. It is very important for humankind that architecture should move by its beauty."</p>
+          <cite>— Luis Barragán, Pritzker Prize acceptance speech, 1980</cite>
+        </blockquote>
+      </div>
     </div>
   </section>
 
@@ -530,12 +572,12 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>Casa Meyer</h3>
-          <p>Luis Barragán's final residential project<br>Mexico City, 1978</p>
+          <p>Luis Barragán's final residential project<br>A gift for Barbara Meyer de Garate<br>Mexico City, 1978</p>
         </div>
         <div class="footer-links">
           <h4>Explore</h4>
           <ul>
-            <li><a href="#barragan">Luis Barragán</a></li>
+            <li><a href="#friendship">The Friendship</a></li>
             <li><a href="#story">The House</a></li>
             <li><a href="#architecture">Architecture</a></li>
             <li><a href="#gallery">Gallery</a></li>
@@ -554,7 +596,7 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Casa Meyer. All rights reserved.</p>
-        <p class="footer-attribution">A project dedicated to preserving the legacy of Luis Barragán.</p>
+        <p class="footer-attribution">A project dedicated to preserving the legacy of Luis Barragán and his friendship with Barbara Meyer de Garate.</p>
       </div>
     </div>
   </footer>
