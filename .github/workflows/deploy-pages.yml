@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - claude/casa-meyer-website-4fPck
+      - claude/add-parallax-scrolling-UED1S
       - main
 
 permissions:
