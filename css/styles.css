@@ -157,17 +157,17 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   transition: background-color 0.5s ease, padding 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Over the hero — light text */
+/* Over the hero — dark text for readability on light watercolor */
 .nav .nav-logo,
 .nav .nav-links a {
-  color: rgba(255,255,255,0.95);
-  text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  color: var(--charcoal);
+  text-shadow: none;
   transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
 .nav .nav-toggle span {
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  background: var(--charcoal);
+  box-shadow: none;
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -288,15 +288,15 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 .nav-links a:hover::after { width: 100%; }
 
 .nav-cta {
-  background: rgba(255,255,255,0.15) !important;
+  background: var(--charcoal) !important;
   backdrop-filter: blur(8px);
-  color: white !important;
+  color: var(--warm-white) !important;
   padding: 0.6rem 1.4rem;
   font-size: 0.8rem !important;
   letter-spacing: 0.06em;
   transition: background 0.3s ease, transform 0.3s ease !important;
   text-shadow: none !important;
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid var(--charcoal);
 }
 
 .nav.is-scrolled .nav-cta {
@@ -354,8 +354,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.18) 55%, rgba(0,0,0,0.08) 100%),
-    linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.25) 100%);
+    linear-gradient(to bottom, rgba(250,247,242,0.15) 0%, transparent 40%, transparent 70%, rgba(250,247,242,0.25) 100%);
   pointer-events: none;
 }
 
@@ -373,8 +372,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   font-weight: 300;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.9);
-  text-shadow: 0 1px 6px rgba(0,0,0,0.5), 0 2px 12px rgba(0,0,0,0.3);
+  color: var(--charcoal);
+  text-shadow: none;
   margin-bottom: var(--space-md);
 }
 
@@ -392,19 +391,19 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .hero-title span {
   display: block;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6), 0 4px 24px rgba(0,0,0,0.4), 0 0 80px rgba(0,0,0,0.2);
+  text-shadow: none;
 }
 
 .hero-title span:first-child {
   font-size: clamp(2.5rem, 8vw, 6rem);
-  color: rgba(255,255,255,0.85);
+  color: var(--charcoal);
   letter-spacing: 0.4em;
   font-weight: 100;
 }
 
 .hero-title span:last-child {
   font-size: clamp(3.5rem, 13vw, 10rem);
-  color: white;
+  color: var(--charcoal);
   margin-top: 0.05em;
   font-weight: 200;
 }
@@ -416,8 +415,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   font-style: italic;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.9);
-  text-shadow: 0 1px 6px rgba(0,0,0,0.5), 0 2px 12px rgba(0,0,0,0.3);
+  color: var(--charcoal);
+  text-shadow: none;
   margin-bottom: var(--space-xl);
 }
 
@@ -432,14 +431,14 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
-  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  color: rgba(50,50,50,0.5);
+  text-shadow: none;
 }
 
 .hero-scroll-line {
   width: 1px;
   height: 60px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+  background: linear-gradient(to bottom, rgba(50,50,50,0.4), transparent);
   animation: scrollPulse 2s ease-in-out infinite;
 }
 
