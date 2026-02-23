@@ -21,10 +21,10 @@
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 4rem;
-  --space-xl: 8rem;
-  --space-2xl: 12rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -50,6 +50,7 @@ html {
 body {
   font-family: var(--font-body);
   font-weight: 300;
+  font-size: 1.05rem;
   color: var(--charcoal);
   background-color: var(--warm-white);
   line-height: 1.7;
@@ -275,7 +276,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .nav-links a {
   font-family: var(--font-display);
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -359,15 +360,15 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .hero-bg {
   position: absolute;
-  inset: -15% 0;
+  inset: 0;
   will-change: transform;
 }
 
 .hero-bg-image {
   width: 100%;
-  height: 100%;
+  height: 120%;
   object-fit: cover;
-  object-position: center 55%;
+  object-position: center 40%;
 }
 
 .hero-overlay {
@@ -388,7 +389,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .hero-overline {
   font-family: var(--font-display);
-  font-size: 0.6rem;
+  font-size: 0.85rem;
   font-weight: 300;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -415,14 +416,14 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .hero-title span:first-child {
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
   color: white;
   letter-spacing: 0.5em;
   font-weight: 200;
 }
 
 .hero-title span:last-child {
-  font-size: clamp(1.8rem, 6vw, 3.5rem);
+  font-size: clamp(2.4rem, 8vw, 5rem);
   color: white;
   margin-top: 0.05em;
   font-weight: 300;
@@ -430,7 +431,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .hero-subtitle {
   font-family: var(--font-display);
-  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  font-size: clamp(0.85rem, 1.4vw, 1.1rem);
   font-weight: 300;
   font-style: italic;
   letter-spacing: 0.15em;
@@ -448,7 +449,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .hero-scroll span {
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.6);
@@ -502,7 +503,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
    ============================================ */
 
 .intro {
-  padding: var(--space-2xl) 0;
+  padding: var(--space-xl) 0;
 }
 
 .intro-quote {
@@ -525,7 +526,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   display: block;
   margin-top: var(--space-md);
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-style: normal;
   letter-spacing: 0.06em;
   color: var(--warm-grey);
@@ -537,7 +538,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .friendship {
   position: relative;
-  min-height: 75vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -545,14 +546,14 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .friendship-bg {
   position: absolute;
-  inset: -15% 0;
+  inset: 0;
   z-index: 0;
   will-change: transform;
 }
 
 .friendship-portrait-bg {
   width: 100%;
-  height: 100%;
+  height: 120%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -563,8 +564,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
-  opacity: 0.45;
+  object-position: center 30%;
+  opacity: 0.5;
   filter: grayscale(0.15);
 }
 
@@ -603,7 +604,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .friendship-subtitle {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 300;
   font-style: italic;
   letter-spacing: 0.15em;
@@ -613,7 +614,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .friendship-body p {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: #555;
   line-height: 1.8;
   margin-bottom: var(--space-md);
@@ -651,7 +652,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .friendship-dedication .dedication-text {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-style: italic;
   font-weight: 300;
   line-height: 1.6;
@@ -660,14 +661,14 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .friendship-dedication .dedication-translation {
   margin-top: 0.5rem;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-style: italic;
   color: rgba(255,255,255,0.5);
 }
 
 .friendship-dedication .dedication-author {
   margin-top: var(--space-sm);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   letter-spacing: 0.06em;
   color: var(--warm-grey);
 }
@@ -700,7 +701,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .label-text {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -720,7 +721,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .section-year {
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 300;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -735,7 +736,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .text-columns p {
   margin-bottom: var(--space-md);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: #555;
 }
 
@@ -744,7 +745,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
    ============================================ */
 
 .barragan {
-  padding: var(--space-2xl) 0 var(--space-xl);
+  padding: var(--space-xl) 0 var(--space-lg);
 }
 
 .barragan-achievements {
@@ -768,9 +769,9 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .achievement-text {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--warm-grey);
-  max-width: 200px;
+  max-width: 220px;
 }
 
 /* ============================================
@@ -799,7 +800,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
    ============================================ */
 
 .story {
-  padding: var(--space-xl) 0 var(--space-2xl);
+  padding: var(--space-xl) 0 var(--space-xl);
 }
 
 .story-image-wrap {
@@ -897,7 +898,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .detail-card h3 {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 300;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -905,7 +906,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .detail-card p {
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: #666;
   line-height: 1.7;
 }
@@ -915,7 +916,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
    ============================================ */
 
 .architecture {
-  padding: var(--space-2xl) 0;
+  padding: var(--space-xl) 0;
   background: var(--charcoal);
   color: var(--warm-white);
 }
@@ -925,7 +926,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 .architecture .section-title { color: var(--warm-white); }
 
 .architecture-text {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: rgba(255,255,255,0.6);
   max-width: 600px;
 }
@@ -1042,14 +1043,14 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .facade-info h3 {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 300;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
 .facade-info p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: rgba(255,255,255,0.4);
   margin-top: 0.25rem;
 }
@@ -1079,7 +1080,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .lattice-text p {
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   color: rgba(255,255,255,0.55);
   line-height: 1.8;
 }
@@ -1182,8 +1183,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .color-break {
   display: flex;
-  height: 80px;
-  margin: var(--space-xl) 0;
+  height: 60px;
+  margin: var(--space-lg) 0;
 }
 
 .color-break-swatch {
@@ -1206,11 +1207,11 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .visit {
   position: relative;
-  padding: var(--space-2xl) 0;
+  padding: var(--space-xl) 0;
 }
 
 .visit-intro {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: #555;
   max-width: 600px;
   margin-bottom: var(--space-lg);
@@ -1244,7 +1245,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 .form-group--full { margin-bottom: var(--space-md); }
 
 .form-group label {
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1259,7 +1260,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   border: 1px solid var(--light-grey);
   background: var(--warm-white);
   color: var(--charcoal);
-  font-size: 0.92rem;
+  font-size: 1rem;
   transition: border-color 0.3s ease;
   outline: none;
   -webkit-appearance: none;
@@ -1285,7 +1286,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   color: var(--warm-white);
   border: none;
   padding: 1rem 2.5rem;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1346,7 +1347,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .tour-card h3 {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 300;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1354,7 +1355,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .tour-duration {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--pink);
@@ -1364,7 +1365,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 .tour-card--highlight .tour-duration { color: var(--pink-light); }
 
 .tour-card p {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: #777;
 }
@@ -1385,7 +1386,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
    ============================================ */
 
 .closing {
-  padding: var(--space-2xl) 0;
+  padding: var(--space-xl) 0;
   background: var(--charcoal);
 }
 
@@ -1412,7 +1413,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   display: block;
   margin-top: var(--space-md);
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-style: normal;
   letter-spacing: 0.06em;
   color: var(--warm-grey);
@@ -1445,10 +1446,10 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   margin-bottom: var(--space-sm);
 }
 
-.footer-brand p { font-size: 0.85rem; line-height: 1.7; }
+.footer-brand p { font-size: 0.95rem; line-height: 1.7; }
 
 .footer h4 {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1457,10 +1458,10 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .footer-links ul { display: flex; flex-direction: column; gap: 0.6rem; }
-.footer-links a { font-size: 0.88rem; transition: color 0.3s ease; }
+.footer-links a { font-size: 0.95rem; transition: color 0.3s ease; }
 .footer-links a:hover { color: var(--warm-white); }
 
-.footer-contact p, .footer-hours p { font-size: 0.88rem; line-height: 1.7; }
+.footer-contact p, .footer-hours p { font-size: 0.95rem; line-height: 1.7; }
 .footer-contact a:hover { color: var(--pink); }
 
 .footer-bottom {
@@ -1469,7 +1470,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   align-items: center;
   padding-top: var(--space-lg);
   border-top: 1px solid rgba(255,255,255,0.06);
-  font-size: 0.78rem;
+  font-size: 0.88rem;
 }
 
 .footer-attribution { color: rgba(255,255,255,0.25); }
@@ -1509,7 +1510,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .modal-content h3 {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 200;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1517,7 +1518,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .modal-content p {
-  font-size: 0.92rem;
+  font-size: 1rem;
   color: #666;
   line-height: 1.7;
   margin-bottom: var(--space-lg);
@@ -1528,7 +1529,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   color: var(--warm-white);
   border: none;
   padding: 0.8rem 2.5rem;
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
@@ -1580,8 +1581,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 @media (max-width: 768px) {
   :root {
-    --space-xl: 5rem;
-    --space-2xl: 7rem;
+    --space-xl: 3rem;
+    --space-2xl: 4.5rem;
   }
 
   .nav-toggle { display: block; }
