@@ -304,8 +304,8 @@
     var grid = document.getElementById('latticeGrid');
     if (!grid) return;
 
-    // Green doorknob accent positions — scattered like doorknobs on the pink grid
-    var greenCells = [11, 28, 44, 53];
+    // Green doorknob accent — row 3 cols 5-6, row 4 cols 5-6 (like a doorknob cluster)
+    var greenCells = [20, 21, 28, 29];
     for (var i = 0; i < 64; i++) {
       var cell = document.createElement('div');
       cell.className = 'lattice-cell';
