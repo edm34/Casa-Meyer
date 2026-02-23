@@ -138,17 +138,19 @@
     }
 
     // ── HERO IMAGE PARALLAX ──
-    // The hero background moves at 35% of scroll speed.
-    // This is the core parallax effect — visible, obvious depth.
+    // The hero background moves at 25% of scroll speed.
+    // Gentler rate works better with object-fit: contain.
     if (heroBg && scrollY < vh * 1.5) {
-      heroBg.style.transform = 'translateY(' + (scrollY * 0.35) + 'px)';
+      var isMobile = window.innerWidth <= 768;
+      var rate = isMobile ? 0.15 : 0.25;
+      heroBg.style.transform = 'translateY(' + (scrollY * rate) + 'px)';
     }
 
     // ── HERO CONTENT: fades out + drifts up on scroll ──
     if (heroContent && scrollY < vh) {
       const progress = scrollY / vh;
       heroContent.style.opacity = clamp(1 - progress * 1.8, 0, 1);
-      heroContent.style.transform = 'translateY(' + (progress * -70) + 'px)';
+      heroContent.style.transform = 'translateY(' + (progress * -50) + 'px)';
     }
 
     // ── FRIENDSHIP: Background parallax + card slide-in ──
