@@ -152,13 +152,14 @@
     }
 
     // ── FRIENDSHIP: Background parallax + card slide-in ──
+    // Same strong parallax as the hero — background moves at 35% of scroll speed
     if (friendshipSection) {
       const rect = friendshipSection.getBoundingClientRect();
       if (rect.top < vh && rect.bottom > 0) {
         const progress = getScrollProgress(friendshipSection);
 
         if (friendshipBg) {
-          var offset = (progress - 0.5) * -120;
+          var offset = rect.top * -0.35;
           friendshipBg.style.transform = 'translateY(' + offset + 'px)';
         }
 
