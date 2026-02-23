@@ -34,7 +34,7 @@
   const friendshipBg = document.querySelector('.friendship-bg');
   const friendshipCard = document.getElementById('friendshipCard');
 
-  const storyImage = document.getElementById('storyImage');
+  // storyImage removed (illustration deleted)
   const facadeCards = document.querySelectorAll('.facade-card');
   const colorDividerBlocks = document.querySelectorAll('.color-divider-block');
 
@@ -167,18 +167,6 @@
           var eased = easeOutCubic(cardProgress);
           friendshipCard.style.transform = 'translateX(' + ((1 - eased) * 60) + 'px)';
           friendshipCard.style.opacity = eased;
-        }
-      }
-    }
-
-    // ── STORY IMAGE: vertical parallax drift ──
-    if (storyImage) {
-      var parent = storyImage.closest('.story-image-wrap');
-      if (parent) {
-        var rect = parent.getBoundingClientRect();
-        if (rect.top < vh && rect.bottom > 0) {
-          var progress = getScrollProgress(parent);
-          storyImage.style.transform = 'translateY(' + ((progress - 0.5) * -40) + 'px)';
         }
       }
     }
@@ -381,47 +369,7 @@
     grid.addEventListener('mouseleave', function() { animateWave(); });
   }
 
-  // ============================================
-  // Gallery color fill reveal
-  // ============================================
-
-  function initGalleryReveal() {
-    var items = document.querySelectorAll('.gallery-item');
-
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var fill = entry.target.querySelector('.gallery-color-fill:not(.gallery-color-fill--fallback)');
-          if (fill) {
-            fill.style.transition = 'clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
-            fill.style.clipPath = 'inset(0 0 0 0)';
-          }
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    items.forEach(function(item) {
-      var fill = item.querySelector('.gallery-color-fill:not(.gallery-color-fill--fallback)');
-      if (fill) {
-        fill.style.clipPath = 'inset(0 100% 0 0)';
-      }
-      observer.observe(item);
-    });
-  }
-
-  // ============================================
-  // Palette swatch interaction
-  // ============================================
-
-  function initPaletteInteraction() {
-    document.querySelectorAll('.palette-swatch').forEach(function(swatch) {
-      swatch.addEventListener('click', function() {
-        swatch.style.transform = 'scaleY(1.1)';
-        setTimeout(function() { swatch.style.transform = ''; }, 200);
-      });
-    });
-  }
+  // Gallery and palette sections removed
 
   // ============================================
   // Booking Form
@@ -482,8 +430,7 @@
     createRevealObserver();
     initFacadeInteraction();
     initLatticeGrid();
-    initGalleryReveal();
-    initPaletteInteraction();
+    // gallery and palette removed
     initBookingForm();
 
     window.addEventListener('scroll', onScroll, { passive: true });
