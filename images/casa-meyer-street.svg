@@ -1,77 +1,174 @@
-<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#87CEEB" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#FAF7F2"/>
-    </linearGradient>
-    <linearGradient id="shadow" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#2C2C2C" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </linearGradient>
+    <pattern id="grid-street" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="none" stroke="#C4B5A0" stroke-width="0.3" opacity="0.3"/>
+    </pattern>
   </defs>
-  <!-- Sky -->
-  <rect width="1600" height="900" fill="url(#sky)"/>
-  <!-- Main white wall - left -->
-  <rect x="0" y="150" width="600" height="750" fill="#FAF7F2"/>
-  <rect x="0" y="150" width="600" height="750" fill="#e8e4de" opacity="0.3"/>
-  <!-- Wall shadow/texture -->
-  <rect x="580" y="150" width="20" height="750" fill="url(#shadow)"/>
-  <!-- Main white wall - right -->
-  <rect x="900" y="120" width="700" height="780" fill="#FAF7F2"/>
-  <rect x="900" y="120" width="700" height="780" fill="#e0dcd6" opacity="0.3"/>
-  <!-- Wall shadow -->
-  <rect x="880" y="120" width="20" height="780" fill="url(#shadow)"/>
-  <!-- Yellow entrance door -->
-  <rect x="640" y="320" width="220" height="480" fill="#D4A843"/>
-  <rect x="645" y="325" width="210" height="470" fill="#D4A843"/>
-  <!-- Door detail - darker panel -->
-  <rect x="660" y="340" width="85" height="440" fill="#C89A38" opacity="0.5"/>
-  <rect x="760" y="340" width="85" height="440" fill="#C89A38" opacity="0.5"/>
+  <!-- Aged paper background -->
+  <rect width="800" height="550" fill="#F5F0E8"/>
+  <!-- Grid overlay like architectural paper -->
+  <rect width="800" height="550" fill="url(#grid-street)" opacity="0.35"/>
+  <!-- Title block -->
+  <text x="400" y="32" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#8B8178" letter-spacing="4">FACHADA PRINCIPAL — CALLE</text>
+  <line x1="230" y1="39" x2="570" y2="39" stroke="#C4B5A0" stroke-width="0.5"/>
+
+  <!-- Ground line -->
+  <line x1="40" y1="430" x2="760" y2="430" stroke="#5a5248" stroke-width="1.2"/>
+  <line x1="30" y1="432" x2="770" y2="432" stroke="#8B8178" stroke-width="0.5"/>
+  <!-- Street surface hatching -->
+  <g stroke="#C4B5A0" stroke-width="0.3" opacity="0.25">
+    <line x1="40" y1="440" x2="760" y2="440"/>
+    <line x1="40" y1="450" x2="760" y2="450"/>
+    <line x1="40" y1="460" x2="760" y2="460"/>
+  </g>
+
+  <!-- ========== LEFT PERIMETER WALL ========== -->
+  <!-- Tall white wall - left of entrance -->
+  <rect x="80" y="140" width="250" height="290" fill="none" stroke="#5a5248" stroke-width="1.2"/>
+  <rect x="80" y="140" width="250" height="290" fill="#D4C5B0" opacity="0.08"/>
+  <!-- Wall texture - subtle horizontal lines suggesting stucco -->
+  <g stroke="#C4B5A0" stroke-width="0.2" opacity="0.2">
+    <line x1="82" y1="200" x2="328" y2="200"/>
+    <line x1="82" y1="260" x2="328" y2="260"/>
+    <line x1="82" y1="320" x2="328" y2="320"/>
+    <line x1="82" y1="380" x2="328" y2="380"/>
+  </g>
+
+  <!-- ========== ENTRANCE RECESS ========== -->
+  <!-- Recessed entrance cavity -->
+  <rect x="330" y="155" width="130" height="275" fill="none" stroke="#5a5248" stroke-width="1.0"/>
+  <rect x="330" y="155" width="130" height="275" fill="#6B6560" opacity="0.08"/>
+  <!-- Depth shadow on left side of recess -->
+  <line x1="330" y1="155" x2="340" y2="165" stroke="#5a5248" stroke-width="0.6" opacity="0.5"/>
+  <line x1="330" y1="430" x2="340" y2="420" stroke="#5a5248" stroke-width="0.6" opacity="0.5"/>
+  <line x1="330" y1="155" x2="330" y2="430" stroke="#5a5248" stroke-width="0.8"/>
+  <!-- Recess depth lines -->
+  <line x1="340" y1="165" x2="340" y2="420" stroke="#5a5248" stroke-width="0.4" opacity="0.4"/>
+
+  <!-- ========== YELLOW DOOR ========== -->
+  <!-- The distinctive yellow entrance door -->
+  <rect x="345" y="175" width="100" height="255" fill="none" stroke="#5a5248" stroke-width="1.0"/>
+  <!-- Door fill - light wash suggesting yellow -->
+  <rect x="346" y="176" width="98" height="253" fill="#D4A843" opacity="0.25"/>
+  <!-- Door panel divisions -->
+  <line x1="395" y1="176" x2="395" y2="429" stroke="#5a5248" stroke-width="0.5" opacity="0.6"/>
+  <!-- Upper door panels -->
+  <rect x="350" y="182" width="42" height="120" fill="none" stroke="#5a5248" stroke-width="0.4" opacity="0.5"/>
+  <rect x="400" y="182" width="42" height="120" fill="none" stroke="#5a5248" stroke-width="0.4" opacity="0.5"/>
+  <!-- Lower door panels -->
+  <rect x="350" y="310" width="42" height="115" fill="none" stroke="#5a5248" stroke-width="0.4" opacity="0.5"/>
+  <rect x="400" y="310" width="42" height="115" fill="none" stroke="#5a5248" stroke-width="0.4" opacity="0.5"/>
   <!-- Door handle -->
-  <circle cx="735" cy="570" r="5" fill="#8B8178"/>
-  <!-- Upper wall section above door -->
-  <rect x="600" y="150" width="300" height="170" fill="#ede9e3"/>
-  <!-- Vegetation - left side cascading -->
-  <g opacity="0.9">
-    <!-- Large leaf clusters -->
-    <ellipse cx="150" cy="120" rx="120" ry="60" fill="#4A7C59"/>
-    <ellipse cx="80" cy="100" rx="80" ry="50" fill="#3d6b4a"/>
-    <ellipse cx="250" cy="130" rx="90" ry="45" fill="#5a8c69"/>
-    <ellipse cx="400" cy="110" rx="100" ry="55" fill="#4A7C59"/>
-    <ellipse cx="550" cy="120" rx="70" ry="40" fill="#3d6b4a"/>
-    <!-- Cascading vines -->
-    <ellipse cx="100" cy="200" rx="50" ry="80" fill="#5a8c69" opacity="0.7"/>
-    <ellipse cx="200" cy="180" rx="40" ry="60" fill="#4A7C59" opacity="0.6"/>
-    <ellipse cx="500" cy="170" rx="60" ry="50" fill="#5a8c69" opacity="0.5"/>
+  <circle cx="390" cy="310" r="3" fill="none" stroke="#5a5248" stroke-width="0.8"/>
+  <circle cx="390" cy="310" r="1" fill="#5a5248"/>
+  <!-- Threshold step -->
+  <rect x="340" y="425" width="110" height="5" fill="none" stroke="#5a5248" stroke-width="0.5"/>
+  <rect x="340" y="425" width="110" height="5" fill="#D4C5B0" opacity="0.15"/>
+
+  <!-- ========== RIGHT PERIMETER WALL ========== -->
+  <!-- Tall white wall - right of entrance -->
+  <rect x="460" y="120" width="270" height="310" fill="none" stroke="#5a5248" stroke-width="1.2"/>
+  <rect x="460" y="120" width="270" height="310" fill="#D4C5B0" opacity="0.06"/>
+  <!-- Wall texture -->
+  <g stroke="#C4B5A0" stroke-width="0.2" opacity="0.2">
+    <line x1="462" y1="190" x2="728" y2="190"/>
+    <line x1="462" y1="260" x2="728" y2="260"/>
+    <line x1="462" y1="330" x2="728" y2="330"/>
+    <line x1="462" y1="400" x2="728" y2="400"/>
   </g>
-  <!-- Vegetation - right side -->
-  <g opacity="0.9">
-    <ellipse cx="1100" cy="100" rx="100" ry="50" fill="#4A7C59"/>
-    <ellipse cx="1250" cy="110" rx="80" ry="45" fill="#3d6b4a"/>
-    <ellipse cx="1400" cy="95" rx="110" ry="55" fill="#5a8c69"/>
-    <ellipse cx="1550" cy="110" rx="80" ry="50" fill="#4A7C59"/>
-    <!-- Trailing vines on right wall -->
-    <ellipse cx="1000" cy="200" rx="45" ry="70" fill="#5a8c69" opacity="0.5"/>
-    <ellipse cx="1500" cy="180" rx="50" ry="60" fill="#4A7C59" opacity="0.4"/>
+  <!-- Small window on right wall -->
+  <rect x="560" y="260" width="50" height="65" fill="#6B6560" opacity="0.2"/>
+  <rect x="560" y="260" width="50" height="65" fill="none" stroke="#5a5248" stroke-width="0.8"/>
+  <!-- Window cross-hatch -->
+  <g stroke="#5a5248" stroke-width="0.3" opacity="0.35">
+    <line x1="560" y1="260" x2="610" y2="325"/>
+    <line x1="610" y1="260" x2="560" y2="325"/>
   </g>
-  <!-- Bougainvillea accent -->
-  <g opacity="0.7">
-    <circle cx="300" cy="140" r="15" fill="#E84C8A" opacity="0.6"/>
-    <circle cx="320" cy="125" r="12" fill="#E84C8A" opacity="0.5"/>
-    <circle cx="280" cy="130" r="10" fill="#E84C8A" opacity="0.7"/>
-    <circle cx="340" cy="145" r="8" fill="#E84C8A" opacity="0.4"/>
-    <circle cx="1350" cy="100" r="12" fill="#E84C8A" opacity="0.5"/>
-    <circle cx="1380" cy="110" r="10" fill="#E84C8A" opacity="0.6"/>
+
+  <!-- ========== VEGETATION ========== -->
+  <!-- Cascading vegetation over left wall - loose sketch style -->
+  <g fill="none" stroke="#4A7C59" opacity="0.55">
+    <!-- Tree canopy outlines - loose, gestural lines -->
+    <path d="M90,140 Q120,80 170,95 Q200,75 240,90 Q270,70 310,100 Q330,85 340,120" stroke-width="0.8"/>
+    <path d="M100,135 Q140,90 190,105 Q220,85 260,98 Q290,82 325,110" stroke-width="0.6"/>
+    <!-- Cascading vine suggestions -->
+    <path d="M120,140 Q115,180 125,220 Q118,240 130,260" stroke-width="0.5" opacity="0.4"/>
+    <path d="M200,140 Q195,170 205,200 Q198,220 208,240" stroke-width="0.5" opacity="0.35"/>
+    <path d="M280,140 Q275,165 285,190" stroke-width="0.5" opacity="0.3"/>
   </g>
-  <!-- Street / ground -->
-  <rect x="0" y="800" width="1600" height="100" fill="#d4c5b0"/>
-  <!-- Sidewalk -->
-  <rect x="0" y="790" width="1600" height="15" fill="#e8e4de"/>
-  <!-- Shadow on ground from walls -->
-  <polygon points="600,800 600,790 900,790 900,800" fill="#c4b5a0"/>
-  <!-- Small window on left wall -->
-  <rect x="350" y="350" width="80" height="100" fill="#6B6560" opacity="0.3"/>
-  <rect x="355" y="355" width="70" height="90" fill="#87CEEB" opacity="0.15"/>
-  <!-- Address number -->
-  <text x="540" y="280" font-family="Georgia, serif" font-size="24" fill="#8B8178" opacity="0.4">14</text>
+  <!-- Fill suggestion for foliage - light green wash -->
+  <g fill="#4A7C59" opacity="0.06">
+    <ellipse cx="170" cy="110" rx="90" ry="35"/>
+    <ellipse cx="280" cy="105" rx="60" ry="30"/>
+  </g>
+  <!-- Vegetation over right wall -->
+  <g fill="none" stroke="#4A7C59" opacity="0.55">
+    <path d="M470,120 Q510,65 560,80 Q600,55 650,75 Q690,60 720,85 Q740,70 755,100" stroke-width="0.8"/>
+    <path d="M480,118 Q530,72 580,88 Q620,65 670,82 Q710,70 735,95" stroke-width="0.6"/>
+    <!-- Trailing vines -->
+    <path d="M500,120 Q495,155 505,185 Q498,200 508,220" stroke-width="0.5" opacity="0.4"/>
+    <path d="M620,120 Q615,150 625,175 Q618,195 628,215" stroke-width="0.5" opacity="0.35"/>
+    <path d="M700,120 Q695,145 705,170" stroke-width="0.5" opacity="0.3"/>
+  </g>
+  <g fill="#4A7C59" opacity="0.06">
+    <ellipse cx="580" cy="85" rx="90" ry="35"/>
+    <ellipse cx="710" cy="80" rx="50" ry="28"/>
+  </g>
+
+  <!-- ========== BOUGAINVILLEA ACCENTS ========== -->
+  <!-- Small circles suggesting bougainvillea blooms - very sketchy -->
+  <g fill="none" stroke="#E84C8A" stroke-width="0.5" opacity="0.4">
+    <circle cx="240" cy="95" r="5"/>
+    <circle cx="250" cy="88" r="3.5"/>
+    <circle cx="232" cy="100" r="4"/>
+    <circle cx="258" cy="95" r="3"/>
+    <circle cx="660" cy="72" r="4.5"/>
+    <circle cx="670" cy="65" r="3"/>
+    <circle cx="652" cy="78" r="3.5"/>
+  </g>
+
+  <!-- ========== SHADOW CASTING ========== -->
+  <!-- Wall shadow on ground -->
+  <g fill="#5a5248" opacity="0.06">
+    <rect x="80" y="430" width="650" height="20"/>
+  </g>
+  <!-- Shadow in entrance recess -->
+  <g fill="#5a5248" opacity="0.04">
+    <rect x="330" y="155" width="15" height="275"/>
+  </g>
+
+  <!-- ========== DIMENSION LINES ========== -->
+  <g stroke="#C4B5A0" stroke-width="0.5">
+    <!-- Horizontal overall -->
+    <line x1="80" y1="475" x2="730" y2="475"/>
+    <line x1="80" y1="470" x2="80" y2="480"/>
+    <line x1="730" y1="470" x2="730" y2="480"/>
+    <!-- Door width -->
+    <line x1="345" y1="465" x2="445" y2="465"/>
+    <line x1="345" y1="460" x2="345" y2="470"/>
+    <line x1="445" y1="460" x2="445" y2="470"/>
+    <!-- Vertical height - left wall -->
+    <line x1="55" y1="140" x2="55" y2="430"/>
+    <line x1="50" y1="140" x2="60" y2="140"/>
+    <line x1="50" y1="430" x2="60" y2="430"/>
+  </g>
+
+  <!-- ========== ANNOTATIONS ========== -->
+  <!-- Color annotation for door -->
+  <g font-family="Georgia, serif" font-size="8" fill="#8B8178" opacity="0.5" font-style="italic">
+    <text x="395" y="168">amarillo</text>
+  </g>
+
+  <!-- Scale -->
+  <text x="400" y="498" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#8B8178">ESC. 1:50</text>
+  <!-- Signature -->
+  <text x="700" y="515" text-anchor="end" font-family="Georgia, serif" font-size="9" fill="#8B8178" font-style="italic" opacity="0.6">L. Barragán — Oct. 1978</text>
+  <text x="700" y="530" text-anchor="end" font-family="Georgia, serif" font-size="8" fill="#8B8178" opacity="0.4">Casa Meyer — Vista de la calle</text>
+
+  <!-- North arrow -->
+  <g transform="translate(745, 80)">
+    <line x1="0" y1="20" x2="0" y2="-20" stroke="#8B8178" stroke-width="0.8"/>
+    <polygon points="0,-20 -5,-10 5,-10" fill="#8B8178" opacity="0.6"/>
+    <text x="0" y="-25" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#8B8178">N</text>
+  </g>
 </svg>
