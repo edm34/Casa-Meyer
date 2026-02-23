@@ -304,9 +304,14 @@
     var grid = document.getElementById('latticeGrid');
     if (!grid) return;
 
+    // Green doorknob accent positions — scattered like doorknobs on the pink grid
+    var greenCells = [11, 28, 44, 53];
     for (var i = 0; i < 64; i++) {
       var cell = document.createElement('div');
       cell.className = 'lattice-cell';
+      if (greenCells.indexOf(i) !== -1) {
+        cell.classList.add('lattice-cell--green');
+      }
       grid.appendChild(cell);
     }
 

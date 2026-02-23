@@ -128,6 +128,11 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 .preloader-grid span:nth-child(15) { animation-delay: 0.5s; }
 .preloader-grid span:nth-child(16) { animation-delay: 0.6s; }
 
+/* Green doorknob accent — one cell in the grid is green */
+.preloader-grid span:nth-child(12) {
+  background: var(--deep-green);
+}
+
 @keyframes preloaderPulse {
   0%, 100% { opacity: 0.15; }
   50% { opacity: 1; }
@@ -154,30 +159,33 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   right: 0;
   z-index: 1000;
   padding: var(--space-sm) 0;
+  background-color: rgba(44, 44, 44, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   transition: background-color 0.5s ease, padding 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Over the hero — dark text for readability on light watercolor */
+/* Over the hero — white text on dark translucent bar */
 .nav .nav-logo,
 .nav .nav-links a {
-  color: var(--charcoal);
-  text-shadow: none;
+  color: var(--warm-white);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
   transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
 .nav .nav-toggle span {
-  background: var(--charcoal);
-  box-shadow: none;
+  background: var(--warm-white);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* Scrolled — solid background, dark text */
 .nav.is-scrolled {
-  background-color: rgba(250, 247, 242, 0.95);
+  background-color: rgba(250, 247, 242, 0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 0.6rem 0;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .nav.is-scrolled .nav-logo,
@@ -220,8 +228,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .nav-logo {
   font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 1.05rem;
+  font-weight: 400;
   letter-spacing: 0.3em;
   text-transform: uppercase;
 }
@@ -267,8 +275,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .nav-links a {
   font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 500;
+  font-size: 0.82rem;
+  font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   position: relative;
@@ -297,6 +305,18 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   transition: background 0.3s ease, transform 0.3s ease !important;
   text-shadow: none !important;
   border: 1px solid var(--charcoal);
+  position: relative;
+}
+
+/* Green doorknob dot on CTA */
+.nav-cta::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  background: var(--deep-green);
 }
 
 .nav.is-scrolled .nav-cta {
@@ -361,20 +381,20 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   text-align: center;
   position: relative;
   z-index: 2;
-  padding: var(--space-md) var(--space-md);
-  padding-top: 18vh;
+  padding: 0 var(--space-md);
+  padding-top: 14vh;
   will-change: transform, opacity;
 }
 
 .hero-overline {
   font-family: var(--font-display);
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 300;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.9);
-  text-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 2px 12px rgba(0,0,0,0.3);
-  margin-bottom: var(--space-sm);
+  color: rgba(255,255,255,0.95);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6), 0 2px 12px rgba(0,0,0,0.35);
+  margin-bottom: var(--space-xs);
 }
 
 .hero-title {
@@ -383,7 +403,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   line-height: 0.95;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-xs);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -395,14 +415,14 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .hero-title span:first-child {
-  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  font-size: clamp(1.2rem, 3vw, 2rem);
   color: white;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.5em;
   font-weight: 200;
 }
 
 .hero-title span:last-child {
-  font-size: clamp(2.5rem, 9vw, 6rem);
+  font-size: clamp(1.8rem, 6vw, 3.5rem);
   color: white;
   margin-top: 0.05em;
   font-weight: 300;
@@ -410,14 +430,14 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .hero-subtitle {
   font-family: var(--font-display);
-  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+  font-size: clamp(0.6rem, 1vw, 0.75rem);
   font-weight: 300;
   font-style: italic;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.9);
-  text-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 2px 12px rgba(0,0,0,0.3);
-  margin-bottom: var(--space-lg);
+  color: rgba(255,255,255,0.95);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6), 0 2px 12px rgba(0,0,0,0.35);
+  margin-bottom: var(--space-sm);
 }
 
 .hero-scroll {
@@ -437,7 +457,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .hero-scroll-line {
   width: 1px;
-  height: 60px;
+  height: 40px;
   background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
   animation: scrollPulse 2s ease-in-out infinite;
 }
@@ -565,6 +585,19 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   will-change: transform, opacity;
   opacity: 0;
   transform: translateX(60px);
+  position: relative;
+}
+
+/* Green doorknob dot on the friendship card */
+.friendship-text-card::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--deep-green);
+  transform: translateY(-50%);
 }
 
 .friendship-subtitle {
@@ -601,6 +634,18 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   bottom: 0;
   width: 4px;
   background: var(--pink);
+}
+
+/* Green doorknob dot on the dedication bar */
+.friendship-dedication::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--deep-green);
+  transform: translateY(-50%);
 }
 
 .friendship-dedication .dedication-text {
@@ -821,6 +866,27 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   transform: translateY(-4px);
 }
 
+/* Green doorknob dot on detail cards */
+.detail-card {
+  position: relative;
+}
+
+.detail-card::after {
+  content: '';
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 8px;
+  height: 8px;
+  background: var(--deep-green);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.detail-card:hover::after {
+  opacity: 1;
+}
+
 .detail-icon {
   width: 40px;
   height: 40px;
@@ -882,9 +948,26 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   will-change: transform;
 }
 
+.facade-card {
+  position: relative;
+}
+
 .facade-card:hover {
   border-color: rgba(255,255,255,0.2);
   transform: translateY(-4px);
+}
+
+/* Green doorknob dot on facade cards */
+.facade-card::after {
+  content: '';
+  position: absolute;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  width: 8px;
+  height: 8px;
+  background: var(--deep-green);
+  opacity: 0.7;
+  z-index: 2;
 }
 
 .facade-frame {
@@ -925,6 +1008,12 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   opacity: 0.9 !important;
 }
 
+/* Green doorknob accent on toggled (clicked) blocks */
+.facade-block.is-toggled {
+  stroke: var(--deep-green) !important;
+  stroke-width: 2 !important;
+}
+
 .facade-block--door {
   animation: doorGlow 3s ease-in-out infinite;
 }
@@ -937,6 +1026,12 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 .facade-block--door:hover {
   animation: none;
   opacity: 1 !important;
+}
+
+/* Green doorknob accent on the pink door */
+.facade-doorknob {
+  pointer-events: none;
+  filter: drop-shadow(0 0 3px rgba(74, 124, 89, 0.6));
 }
 
 .facade-info {
@@ -1005,6 +1100,11 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 .lattice-cell:hover {
   opacity: 1;
   transform: scale(1.05);
+}
+
+/* Green doorknob accent cells in the lattice */
+.lattice-cell--green {
+  background: var(--deep-green);
 }
 
 /* ============================================
@@ -1214,9 +1314,25 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   background: white;
 }
 
+.tour-card {
+  position: relative;
+}
+
 .tour-card:hover {
   border-color: var(--charcoal);
   transform: translateX(4px);
+}
+
+/* Green doorknob dot on tour cards */
+.tour-card::after {
+  content: '';
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 8px;
+  height: 8px;
+  background: var(--deep-green);
+  opacity: 0.6;
 }
 
 .tour-card--highlight {
@@ -1388,7 +1504,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .modal.is-visible .modal-content { transform: translateY(0); }
 
-.modal-icon { color: var(--pink); margin-bottom: var(--space-md); }
+.modal-icon { color: var(--deep-green); margin-bottom: var(--space-md); }
 
 .modal-content h3 {
   font-family: var(--font-display);
@@ -1497,8 +1613,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
     border-color: var(--charcoal) !important;
   }
 
-  .hero-title span:first-child { font-size: clamp(1.5rem, 5vw, 2.5rem); }
-  .hero-title span:last-child { font-size: clamp(2rem, 8vw, 4rem); }
+  .hero-title span:first-child { font-size: clamp(1rem, 3vw, 1.6rem); }
+  .hero-title span:last-child { font-size: clamp(1.5rem, 6vw, 2.8rem); }
 
   .friendship { min-height: auto; }
   .friendship-text-card { padding: var(--space-lg); }
@@ -1529,8 +1645,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 @media (max-width: 480px) {
-  .hero-title span:first-child { font-size: 1.8rem; }
-  .hero-title span:last-child { font-size: 2.5rem; }
+  .hero-title span:first-child { font-size: 1.1rem; }
+  .hero-title span:last-child { font-size: 1.6rem; }
 
   .gallery-grid {
     grid-template-columns: 1fr;
