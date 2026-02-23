@@ -11,7 +11,7 @@
   --terracotta: #C85A3A;
   --warm-white: #FAF7F2;
   --stone: #D4C5B0;
-  --deep-green: #2ECC52;
+  --deep-green: #39FF14;
   --charcoal: #2C2C2C;
   --warm-grey: #8B8178;
   --light-grey: #E8E4DE;
@@ -382,7 +382,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   position: relative;
   z-index: 2;
   padding: 0 var(--space-md);
-  padding-top: 28vh;
+  padding-top: 42vh;
   will-change: transform, opacity;
 }
 

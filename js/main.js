@@ -305,7 +305,7 @@
     if (!grid) return;
 
     // Green doorknob accent — row 3 cols 5-6, row 4 cols 5-6 (like a doorknob cluster)
-    var greenCells = [20, 21, 28, 29];
+    var greenCells = [36, 37, 44, 45];
     for (var i = 0; i < 64; i++) {
       var cell = document.createElement('div');
       cell.className = 'lattice-cell';
