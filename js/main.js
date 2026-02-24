@@ -29,6 +29,7 @@
 
   const heroBg = document.querySelector('.hero-bg');
   const heroContent = document.getElementById('heroContent');
+  const heroCaption = document.querySelector('.hero-caption');
 
   const friendshipSection = document.querySelector('.friendship');
   const friendshipBg = document.querySelector('.friendship-bg');
@@ -127,14 +128,20 @@
       nav.classList.remove('is-scrolled');
     }
 
-    // ── Nav: dark over friendship section ──
-    if (friendshipSection) {
-      const rect = friendshipSection.getBoundingClientRect();
-      if (rect.top < vh * 0.3 && rect.bottom > vh * 0.3) {
-        nav.classList.add('is-dark');
-      } else {
-        nav.classList.remove('is-dark');
+    // ── Nav: dark over dark sections (architecture, closing) ──
+    var archSection = document.querySelector('.architecture');
+    var closeSect = document.querySelector('.closing');
+    var isDark = false;
+    [archSection, closeSect].forEach(function(s) {
+      if (s) {
+        var r = s.getBoundingClientRect();
+        if (r.top < vh * 0.3 && r.bottom > vh * 0.3) isDark = true;
       }
+    });
+    if (isDark) {
+      nav.classList.add('is-dark');
+    } else {
+      nav.classList.remove('is-dark');
     }
 
     // ── HERO IMAGE PARALLAX ──
@@ -146,11 +153,18 @@
       heroBg.style.transform = 'translateY(' + (scrollY * rate) + 'px)';
     }
 
-    // ── HERO CONTENT: fades out + drifts up on scroll ──
+    // ── HERO TITLE: fades out + drifts up on scroll ──
     if (heroContent && scrollY < vh) {
       const progress = scrollY / vh;
       heroContent.style.opacity = clamp(1 - progress * 1.8, 0, 1);
-      heroContent.style.transform = 'translateY(' + (progress * -50) + 'px)';
+      // Keep centered transform but add vertical drift
+      heroContent.style.transform = 'translate(-50%, calc(-50% + ' + (progress * -40) + 'px))';
+    }
+
+    // ── HERO CAPTION: fades out on scroll ──
+    if (heroCaption && scrollY < vh) {
+      const progress = scrollY / vh;
+      heroCaption.style.opacity = clamp(1 - progress * 2.5, 0, 1);
     }
 
     // ── FRIENDSHIP: Background parallax + card slide-in ──
@@ -168,7 +182,7 @@
         if (friendshipCard) {
           var cardProgress = clamp((progress - 0.15) / 0.45, 0, 1);
           var eased = easeOutCubic(cardProgress);
-          friendshipCard.style.transform = 'translateX(' + ((1 - eased) * 60) + 'px)';
+          friendshipCard.style.transform = 'translateY(' + ((1 - eased) * 40) + 'px)';
           friendshipCard.style.opacity = eased;
         }
       }
@@ -448,7 +462,7 @@
 
     // Trigger hero animations after preloader fades
     setTimeout(function() {
-      document.querySelectorAll('.hero .reveal').forEach(function(el) {
+      document.querySelectorAll('.hero .reveal, .hero-caption .reveal').forEach(function(el) {
         el.classList.add('is-visible');
       });
     }, 1400);
