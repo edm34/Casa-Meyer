@@ -129,8 +129,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 .preloader-grid span:nth-child(15) { animation-delay: 0.5s; }
 .preloader-grid span:nth-child(16) { animation-delay: 0.6s; }
 
-/* Green doorknob accent — one cell in the grid is green (row 3, col 1) */
-.preloader-grid span:nth-child(9) {
+/* Green doorknob accent — one cell in the grid is green (row 3, col 3) */
+.preloader-grid span:nth-child(11) {
   background: var(--deep-green);
 }
 
@@ -376,11 +376,11 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   pointer-events: none;
 }
 
-/* Title overlaid directly on the painting, above the yellow door */
+/* Title overlaid directly on the painting, on the white wall / yellow gate area */
 .hero-title-overlay {
   position: absolute;
   z-index: 2;
-  top: 42%;
+  top: 68%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -405,21 +405,26 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .hero-title span:first-child {
   font-size: clamp(1.8rem, 4.5vw, 3.2rem);
-  color: #5B7B5E;
+  color: #F5F0E8;
   letter-spacing: 0.5em;
   font-weight: 100;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.25);
 }
 
 .hero-title span:last-child {
   font-size: clamp(2.8rem, 9vw, 5.5rem);
-  color: #5B7B5E;
+  color: #F5F0E8;
   margin-top: 0.02em;
   font-weight: 200;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.25);
 }
 
-/* Caption area below the image */
+/* Caption area overlaid on bottom of the image */
 .hero-caption {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 2;
   text-align: center;
   padding: var(--space-md) var(--space-md) var(--space-lg);
@@ -431,7 +436,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   font-weight: 300;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--charcoal);
+  color: #F5F0E8;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
   margin-bottom: var(--space-xs);
 }
 
@@ -442,7 +448,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   font-style: italic;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--warm-grey);
+  color: #F5F0E8;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
   margin-bottom: var(--space-sm);
 }
 
@@ -457,7 +464,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   font-size: 0.85rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--warm-grey);
+  color: rgba(245, 240, 232, 0.7);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .hero-scroll-line {
@@ -546,9 +554,10 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .friendship-bg {
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -573,31 +582,36 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 .friendship-portrait-bg img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center center;
+  object-fit: cover;
+  object-position: center top;
 }
 
-.friendship-content {
+/* Horizontal text overlay floating on the photo */
+.friendship-overlay {
   position: relative;
   z-index: 1;
-  width: 100%;
-  padding: var(--space-xl) 0;
-}
-
-.friendship-text-card {
-  max-width: 700px;
-  background: var(--warm-white);
-  padding: var(--space-xl);
-  margin: 0 auto;
-  border-left: 4px solid var(--pink);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-2xl) var(--space-md) var(--space-xl);
   will-change: transform, opacity;
   opacity: 0;
   transform: translateY(40px);
+}
+
+.friendship-overlay-inner {
+  background: rgba(44, 44, 44, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: var(--space-xl) var(--space-xl);
+  max-width: 900px;
+  width: 100%;
+  border-left: 4px solid var(--pink);
   position: relative;
 }
 
-/* Green doorknob dot on the friendship card */
-.friendship-text-card::before {
+/* Green doorknob dot on the friendship overlay */
+.friendship-overlay-inner::before {
   content: '';
   position: absolute;
   left: -6px;
@@ -608,6 +622,18 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   transform: translateY(-50%);
 }
 
+.friendship-overlay .section-label .label-number {
+  color: rgba(255,255,255,0.15);
+}
+
+.friendship-overlay .section-label .label-text {
+  color: rgba(255,255,255,0.5);
+}
+
+.friendship-overlay .section-title {
+  color: var(--warm-white);
+}
+
 .friendship-subtitle {
   font-family: var(--font-display);
   font-size: 1.15rem;
@@ -615,50 +641,63 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   font-style: italic;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--warm-grey);
+  color: rgba(255,255,255,0.5);
   margin-bottom: var(--space-lg);
 }
 
 .friendship-body p {
   font-size: 1.05rem;
-  color: #555;
+  color: rgba(255,255,255,0.75);
   line-height: 1.8;
   margin-bottom: var(--space-md);
 }
 
-.friendship-dedication {
-  background: var(--charcoal);
-  color: var(--warm-white);
-  padding: var(--space-lg);
-  margin-top: var(--space-lg);
+.friendship-body {
+  columns: 2;
+  column-gap: var(--space-lg);
+}
+
+/* Pulled-out quote section below the photo */
+.friendship-quote {
   position: relative;
+  z-index: 1;
+  background: var(--charcoal);
+  padding: var(--space-xl) 0;
+}
+
+.friendship-dedication {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--warm-white);
+  position: relative;
+  padding: 0;
 }
 
 .friendship-dedication::before {
   content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
+  display: block;
+  width: 40px;
+  height: 2px;
   background: var(--pink);
+  margin: 0 auto var(--space-lg);
 }
 
-/* Green doorknob dot on the dedication bar */
+/* Green doorknob dot on the dedication */
 .friendship-dedication::after {
   content: '';
   position: absolute;
-  left: -2px;
-  top: 50%;
-  width: 8px;
-  height: 8px;
+  top: -1px;
+  left: 50%;
+  margin-left: 24px;
+  width: 6px;
+  height: 6px;
   background: var(--deep-green);
-  transform: translateY(-50%);
 }
 
 .friendship-dedication .dedication-text {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   font-style: italic;
   font-weight: 300;
   line-height: 1.6;
@@ -1605,9 +1644,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
   .label-number { font-size: 2rem; }
 
-  .friendship-text-card {
+  .friendship-overlay-inner {
     max-width: 100%;
-    margin-left: 0;
   }
 
   .facade-drawings { grid-template-columns: 1fr; }
@@ -1682,7 +1720,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   }
 
   .hero-title-overlay {
-    top: 38%;
+    top: 65%;
   }
 
   .hero-title span:first-child { font-size: clamp(1.1rem, 5vw, 1.8rem); }
@@ -1692,8 +1730,9 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
     padding: var(--space-sm) var(--space-md) var(--space-lg);
   }
 
-  .friendship-bg { height: 60vh; }
-  .friendship-text-card { padding: var(--space-lg); }
+  .friendship-overlay { min-height: 80vh; }
+  .friendship-overlay-inner { padding: var(--space-lg); }
+  .friendship-body { columns: 1; }
   .text-columns { columns: 1; }
   .barragan-timeline { padding-left: var(--space-md); }
   .story-details { grid-template-columns: 1fr; }
