@@ -34,6 +34,7 @@
   const friendshipSection = document.querySelector('.friendship');
   const friendshipBg = document.querySelector('.friendship-bg');
   const friendshipCard = document.getElementById('friendshipCard');
+  const friendshipQuote = document.querySelector('.friendship-quote');
 
   // storyImage removed (illustration deleted)
   const facadeCards = document.querySelectorAll('.facade-card');
