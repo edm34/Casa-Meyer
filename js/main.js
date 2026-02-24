@@ -181,9 +181,10 @@
         }
 
         if (friendshipCard) {
-          var cardProgress = clamp((progress - 0.15) / 0.45, 0, 1);
+          // Triggers earlier (0.05) and completes faster (/0.2) so image is visible sooner
+          var cardProgress = clamp((progress - 0.05) / 0.2, 0, 1);
           var eased = easeOutCubic(cardProgress);
-          friendshipCard.style.transform = 'translateY(' + ((1 - eased) * 40) + 'px)';
+          friendshipCard.style.transform = 'translateY(' + ((1 - eased) * 30) + 'px)';
           friendshipCard.style.opacity = eased;
         }
       }
