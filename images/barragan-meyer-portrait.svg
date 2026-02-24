@@ -45,5 +45,5 @@
   <!-- Floor shadow -->
   <rect x="0" y="530" width="800" height="70" fill="#1a1a1a" opacity="0.3"/>
   <!-- Subtle text -->
-  <text x="400" y="575" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#8B8178" opacity="0.6" font-style="italic">Luis Barragán &amp; Baby Meyer de Garate</text>
+  <text x="400" y="575" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#8B8178" opacity="0.6" font-style="italic">Luis Barragán &amp; Baby Meyer</text>
 </svg>

@@ -129,8 +129,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 .preloader-grid span:nth-child(15) { animation-delay: 0.5s; }
 .preloader-grid span:nth-child(16) { animation-delay: 0.6s; }
 
-/* Green doorknob accent — one cell in the grid is green */
-.preloader-grid span:nth-child(12) {
+/* Green doorknob accent — one cell in the grid is green (row 3, col 1) */
+.preloader-grid span:nth-child(9) {
   background: var(--deep-green);
 }
 
@@ -198,7 +198,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   box-shadow: none;
 }
 
-/* Dark mode — over friendship section */
+/* Dark mode — over dark sections */
 .nav.is-dark {
   background-color: rgba(44, 44, 44, 0.85);
   backdrop-filter: blur(12px);
@@ -341,7 +341,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   overflow: hidden;
   /* Background blends with watercolor edges — warm cream/sky tones */
   background: linear-gradient(
@@ -376,32 +376,24 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   pointer-events: none;
 }
 
-.hero-content {
-  text-align: center;
-  position: relative;
+/* Title overlaid directly on the painting, above the yellow door */
+.hero-title-overlay {
+  position: absolute;
   z-index: 2;
-  padding: 0 var(--space-md);
-  padding-top: 58vh;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
   will-change: transform, opacity;
-}
-
-.hero-overline {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 300;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--charcoal);
-  margin-bottom: var(--space-xs);
+  pointer-events: none;
 }
 
 .hero-title {
   font-family: var(--font-display);
-  font-weight: 200;
-  line-height: 0.95;
+  font-weight: 100;
+  line-height: 0.9;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  margin-bottom: var(--space-xs);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -412,17 +404,35 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .hero-title span:first-child {
-  font-size: clamp(1.6rem, 4vw, 2.8rem);
-  color: var(--charcoal);
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+  color: #5B7B5E;
   letter-spacing: 0.5em;
-  font-weight: 200;
+  font-weight: 100;
 }
 
 .hero-title span:last-child {
-  font-size: clamp(2.4rem, 8vw, 5rem);
-  color: var(--charcoal);
-  margin-top: 0.05em;
+  font-size: clamp(2.8rem, 9vw, 5.5rem);
+  color: #5B7B5E;
+  margin-top: 0.02em;
+  font-weight: 200;
+}
+
+/* Caption area below the image */
+.hero-caption {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: var(--space-md) var(--space-md) var(--space-lg);
+}
+
+.hero-overline {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
   font-weight: 300;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  margin-bottom: var(--space-xs);
 }
 
 .hero-subtitle {
@@ -532,35 +542,39 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .friendship {
   position: relative;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
   overflow: hidden;
 }
 
 .friendship-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    #e8ece8 0%,
+    #eae6dc 30%,
+    #f0ebe0 60%,
+    #ede8d8 100%
+  );
   will-change: transform;
 }
 
 .friendship-portrait-bg {
   width: 100%;
-  height: 120%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #2C2C2C 0%, #3a3632 50%, #2C2C2C 100%);
 }
 
 .friendship-portrait-bg img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-  opacity: 0.5;
-  filter: grayscale(0.15);
+  object-fit: contain;
+  object-position: center center;
 }
 
 .friendship-content {
@@ -571,16 +585,14 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .friendship-text-card {
-  max-width: 600px;
-  background: rgba(250, 247, 242, 0.94);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  max-width: 700px;
+  background: var(--warm-white);
   padding: var(--space-xl);
-  margin-left: auto;
+  margin: 0 auto;
   border-left: 4px solid var(--pink);
   will-change: transform, opacity;
   opacity: 0;
-  transform: translateX(60px);
+  transform: translateY(40px);
   position: relative;
 }
 
@@ -742,30 +754,71 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   padding: var(--space-xl) 0 var(--space-lg);
 }
 
-.barragan-achievements {
-  margin-top: var(--space-lg);
-  display: flex;
-  gap: var(--space-lg);
+.barragan-timeline {
+  margin-top: var(--space-xl);
+  position: relative;
+  padding-left: var(--space-lg);
+  border-left: 1px solid var(--light-grey);
 }
 
-.achievement {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
+.timeline-entry {
+  position: relative;
+  padding-bottom: var(--space-lg);
 }
 
-.achievement-year {
+.timeline-entry:last-child {
+  padding-bottom: 0;
+}
+
+/* Dot on the timeline line */
+.timeline-entry::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-lg) - 4px);
+  top: 0.35em;
+  width: 8px;
+  height: 8px;
+  background: var(--pink);
+  border-radius: 0;
+}
+
+/* Casa Meyer entry gets green dot */
+.timeline-entry:nth-child(5)::before {
+  background: #5B7B5E;
+}
+
+.timeline-year {
+  display: block;
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 100;
   letter-spacing: 0.1em;
   color: var(--pink);
+  line-height: 1;
+  margin-bottom: 0.25rem;
 }
 
-.achievement-text {
+.timeline-entry:nth-child(5) .timeline-year {
+  color: #5B7B5E;
+}
+
+.timeline-title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  margin-bottom: 0.35rem;
+}
+
+.timeline-desc {
+  display: block;
   font-size: 0.95rem;
   color: var(--warm-grey);
-  max-width: 220px;
+  line-height: 1.6;
+  max-width: 500px;
 }
 
 /* ============================================
@@ -1611,7 +1664,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
   .hero {
     height: auto;
-    min-height: 100vh;
+    min-height: 100svh;
   }
 
   .hero-bg {
@@ -1628,18 +1681,21 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
     object-fit: contain;
   }
 
-  .hero-content {
-    padding-top: var(--space-lg);
-    padding-bottom: var(--space-xl);
+  .hero-title-overlay {
+    top: 38%;
   }
 
   .hero-title span:first-child { font-size: clamp(1.1rem, 5vw, 1.8rem); }
   .hero-title span:last-child { font-size: clamp(1.8rem, 9vw, 3rem); }
 
-  .friendship { min-height: auto; }
+  .hero-caption {
+    padding: var(--space-sm) var(--space-md) var(--space-lg);
+  }
+
+  .friendship-bg { height: 60vh; }
   .friendship-text-card { padding: var(--space-lg); }
   .text-columns { columns: 1; }
-  .barragan-achievements { flex-direction: column; gap: var(--space-md); }
+  .barragan-timeline { padding-left: var(--space-md); }
   .story-details { grid-template-columns: 1fr; }
 
   .gallery-grid {
@@ -1665,8 +1721,8 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 @media (max-width: 480px) {
-  .hero-title span:first-child { font-size: 1.1rem; }
-  .hero-title span:last-child { font-size: 1.6rem; }
+  .hero-title span:first-child { font-size: 1rem; }
+  .hero-title span:last-child { font-size: 1.5rem; }
 
   .gallery-grid {
     grid-template-columns: 1fr;
@@ -1690,6 +1746,7 @@ button, input, select, textarea { font-family: inherit; font-size: inherit; }
   .hero { height: auto; min-height: 0; padding: var(--space-lg); background: white; }
   .hero-bg, .hero-overlay { display: none; }
   .hero-title span, .hero-overline, .hero-subtitle { color: black !important; }
+  .hero-title-overlay { position: static; transform: none; }
   .architecture { background: white; color: black; }
   .closing { background: white; }
   .closing-quote p { color: black; }
